@@ -18,6 +18,37 @@ Lampiran ini ditulis dengan asumsi Anda **tidak memiliki latar belakang pemrogra
 
 Anda **tidak** membutuhkan: komputer berspesifikasi tinggi, kartu grafis, server, atau langganan berbayar pribadi ke penyedia model mana pun.
 
+### Peta kebutuhan per minggu
+
+Tabel ini menyebut **kemampuan** yang dibutuhkan, bukan merek — nama layanan yang dipakai kelas disampaikan di pertemuan pertama. Kolom terakhir menandai minggu yang menghabiskan anggaran paling besar.
+
+| Mgg | Kemampuan yang dibutuhkan | Kredensial gateway | Anggaran |
+|:--:|---|:--:|:--:|
+| 1 | Antarmuka chat apa pun + pengolah teks untuk catatan proses | belum | – |
+| 2 | Antarmuka yang **menyediakan pengaturan temperature** (konsol/*playground* penyedia, bukan chat biasa) — percobaan 1 dan 2 butuh temperature 0 dan temperature 1 | belum | – |
+| 3 | Gateway · repositori pribadi · `.gitignore` · tempat menyimpan kredensial di luar berkas kode · `catatan-pemakaian.md` | **mulai di sini** | kecil |
+| 4 | Gateway · berkas versi instruksi (`instruksi/v1.md`, `instruksi/CATATAN.md`) | ya | kecil |
+| 5 | Gateway · cara memeriksa output **valid menurut schema** — pemeriksa otomatis, atau pemeriksaan manual atas 10 output | ya | kecil |
+| 6 | Gateway yang mendukung **pemanggilan tool** · kemampuan menjalankan tool itu · penanganan error tool | ya | sedang |
+| 7 | Pembuat *embedding* · penyimpan vektor sederhana · dokumen rujukan yang sah dipakai | ya | sedang |
+| 8 | **UTS** — hanya dokumen rancangan dan presentasi | – | – |
+| 9 | Sama dengan Minggu 7, dirakit utuh · tabel uji retrieval dan kesetiaan pada sumber | ya | sedang |
+| 10 | Analisis pembanding *workflow* vs agent — hampir tanpa pemanggilan | opsional | – |
+| 11 | Pengaturan tugas banyak langkah · **pencatat trace** · batas langkah terpasang | ya | **besar** |
+| 12 | Studi kasus dan peer review — tanpa pemanggilan | tidak | – |
+| 13 | Penegakan batas akses tool · titik persetujuan manusia | ya | sedang |
+| 14 | Menjalankan **set uji berulang** · pencatat biaya per jalan | ya | **paling besar** |
+| 15 | Uji serangan terhadap produk sendiri · pemeriksaan repositori atas kredensial yang bocor | ya | sedang |
+| 16 | **UAS** — sistem berjalan pada kasus yang dipilih dosen dari set uji Anda | ya | kecil |
+
+Tiga hal yang perlu Anda antisipasi dari tabel ini:
+
+- **Minggu 1–2 tidak menunggu kredensial.** Keduanya dikerjakan dengan antarmuka publik. Hanya Minggu 2 yang butuh pengaturan temperature, jadi pakai konsol penyedia, bukan jendela chat biasa.
+- **Minggu 6 adalah lompatan teknis terbesar** — di sinilah produk Anda berhenti menjadi percakapan dan mulai menjadi sistem yang menjalankan sesuatu. Sisakan waktu lebih di minggu itu.
+- **Minggu 11 dan 14 paling boros.** Agent yang berputar dan set uji yang dijalankan berulang menghabiskan anggaran jauh lebih cepat daripada minggu-minggu sebelumnya. Pasang batas langkah sejak Minggu 11, dan uji dengan tiga kasus sebelum lima belas.
+
+Kalau anggaran menipis, Minggu 10 dan 12 adalah dua minggu yang dapat dikerjakan penuh nyaris tanpa pemanggilan model.
+
 ---
 
 ## 2. Urutan penyiapan Minggu 3
@@ -31,7 +62,7 @@ Kerjakan berurutan. Kalau satu langkah gagal, jangan lanjut — pakai pola **F1 
 3. Terima kredensial model gateway dari dosen.
 4. Simpan kredensial di file rahasia — di luar file kode.
 5. Lakukan pemanggilan model pertama.
-6. Bedah pemanggilan itu memakai tabel Minggu 3 bagian READ.
+6. Uraikan pemanggilan itu memakai tabel Minggu 3 bagian READ.
 7. Buat catatan-pemakaian.md dan isi baris pertama.
 ```
 
@@ -73,14 +104,14 @@ Anggaran ditetapkan di awal semester dan dikelola melalui model gateway dengan b
 |---|---|
 | Tugas rutin ke model kecil | Klasifikasi dan ekstraksi hampir tidak berbeda hasilnya, biayanya berbeda berkali lipat |
 | Uji dengan 3 kasus dulu, baru 15 | Kesalahan rancangan yang ketahuan pada kasus ketiga menghemat dua belas pemanggilan |
-| Batasi panjang keluaran | Tarif keluaran beberapa kali lipat tarif masukan |
+| Batasi panjang output | Tarif output beberapa kali lipat tarif input |
 | Jangan kirim seluruh dokumen | Inilah alasan Blok C ada |
-| Pasang batas langkah pada agen sejak awal | Agen yang berputar menghabiskan anggaran dalam hitungan menit |
+| Pasang batas langkah pada agent sejak awal | Agent yang berputar menghabiskan anggaran dalam hitungan menit |
 | Catat pemakaian tiap minggu | Anda menyadari pembengkakan pada minggu ia terjadi, bukan pada Minggu 14 |
 
 ### Berjalan tanpa biaya sama sekali
 
-Kalau anggaran habis atau Anda memilih tidak memakai model berbayar, hal berikut tetap dapat dikerjakan penuh: seluruh tahap READ, seluruh perancangan instruksi dan skema, seluruh rancangan RAG, seluruh analisis workflow-vs-agen, seluruh kajian risiko dan etika, dan penyusunan set uji.
+Kalau anggaran habis atau Anda memilih tidak memakai model berbayar, hal berikut tetap dapat dikerjakan penuh: seluruh tahap READ, seluruh perancangan instruksi dan schema, seluruh rancangan RAG, seluruh analisis workflow-vs-agent, seluruh kajian risiko dan etika, dan penyusunan set uji.
 
 Yang membutuhkan pemanggilan model — tahap BREAK, FIX, dan pengujian — dijalankan pada model bertarif rendah atau tanpa biaya yang tersedia lewat model gateway. Sampaikan kepada dosen agar dialokasikan. **Tidak ada penurunan nilai** karena memakai model murah; laporan evaluasi yang jujur tentang keterbatasan model murah justru bernilai penuh.
 

@@ -54,8 +54,8 @@ Siapa yang menyusun jawaban acuan, dan atas dasar apa :
 |---|---|---|
 | 1 | Menjawab pertanyaan yang benar-benar diajukan |  |
 | 2 | Seluruh pernyataan didukung sumber yang dirujuk |  |
-| 3 | Tidak ada pernyataan tambahan yang tak berdasar |  |
-| 4 | Format keluaran sah menurut skema |  |
+| 3 | Tidak ada pernyataan tambahan tanpa dasar |  |
+| 4 | Format output valid menurut schema |  |
 | 5 | Menolak dengan benar bila memang seharusnya menolak |  |
 
 Penilai : saya sendiri / model / keduanya
@@ -72,8 +72,8 @@ Bila memakai model — kalibrasi:
 |---|---:|---:|---:|
 | 1. Menjawab yang diajukan |  |  |  |
 | 2. Didukung sumber |  |  |  |
-| 3. Tanpa tambahan tak berdasar |  |  |  |
-| 4. Format sah |  |  |  |
+| 3. Tanpa tambahan tanpa dasar |  |  |  |
+| 4. Format valid |  |  |  |
 | 5. Menolak dengan benar |  |  |  |
 
 Per jenis kasus:
@@ -85,16 +85,16 @@ Per jenis kasus:
 | Harus ditolak |  |  |  |
 | Pernah gagal |  |  |  |
 
-Variance antar-jalan : set uji dijalankan ___ kali, ___ kasus berubah hasilnya.
+Variance antar-percobaan : set uji dijalankan ___ kali, ___ kasus berubah hasilnya.
 Artinya bagi angka di atas :
 
 
-## 5. Perbandingan terhadap garis dasar Minggu 9
+## 5. Perbandingan terhadap baseline Minggu 9
 
 | Ukuran | Minggu 9 | Sekarang | Selisih |
 |---|---:|---:|---:|
-| Pertanyaan berjawaban yang dijawab benar |  |  |  |
-| Pertanyaan tak berjawaban yang ditolak benar |  |  |  |
+| Pertanyaan yang jawabannya ada, dijawab benar |  |  |  |
+| Pertanyaan yang jawabannya tidak ada, ditolak dengan benar |  |  |  |
 
 Apa yang menyebabkan perubahan itu :
 
@@ -161,10 +161,10 @@ Tanggal        :
 
 | Risiko | Wujudnya pada produk saya | Diuji? | Hasil uji | Mitigasi | Di lapis mana |
 |---|---|---|---|---|---|
-| Prompt injection lewat masukan pengguna |  |  |  |  |  |
+| Prompt injection lewat input pengguna |  |  |  |  |  |
 | Prompt injection lewat dokumen rujukan |  |  |  |  |  |
 | Kebocoran data ke penyedia model |  |  |  |  |  |
-| Terungkapnya instruksi sistem |  |  |  |  |  |
+| Terungkapnya system prompt |  |  |  |  |  |
 | Penyalahgunaan di luar maksud |  |  |  |  |  |
 | Kredensial terbuka di repositori |  |  |  |  |  |
 
@@ -172,9 +172,9 @@ Hasil pemeriksaan riwayat repositori atas kredensial :
 Tindakan yang saya ambil bila ditemukan :
 
 
-## 2. Kewenangan tool
+## 2. Batas akses tool
 
-| Tool | Boleh | Tidak boleh | Ditegakkan di mana | Butuh persetujuan manusia? |
+| Tool | Boleh | Tidak boleh | Dipasang di mana (prompt / kode) | Butuh persetujuan manusia? |
 |---|---|---|---|---|
 
 Baris yang penegakannya HANYA di instruksi (dan karena itu rapuh) :
@@ -188,7 +188,7 @@ Baris yang penegakannya HANYA di instruksi (dan karena itu rapuh) :
 | Dari dokumen rujukan saya |  |  |  |
 | Dari rancangan saya sendiri |  |  |  |
 
-Kasus yang tidak cocok ke satu pun kategori skema saya, dan ke mana ia
+Kasus yang tidak cocok ke satu pun kategori schema saya, dan ke mana ia
 dipaksa masuk :
 
 Siapa yang dirugikan bila itu terjadi berulang :
@@ -258,6 +258,6 @@ langsung pada UAS dengan kasus dari set uji Anda sendiri.)
 | Angka tanpa jumlah kasus | 93% dari 30 dan 93% dari 3 berbeda jauh | Selalu tulis pembilang dan penyebut |
 | Penilai model tanpa kalibrasi | Tidak diketahui apakah penilaiannya berarti | Nilai sendiri ≥ sepertiga, laporkan kesesuaiannya |
 | "Terbukti andal" | Klaim yang tidak dapat ditopang set uji seukuran ini | Nyatakan andal untuk apa, pada kondisi apa |
-| Biaya tanpa kasus terburuk | Produk agentik dibunuh oleh kasus terburuk | Laporkan khas dan terburuk |
-| Penghematan tanpa uji ulang | Penurunan mutu yang disamarkan | Jalankan set uji yang sama sebelum dan sesudah |
+| Biaya tanpa kasus terburuk | Produk agentic dibunuh oleh kasus terburuk | Laporkan khas dan terburuk |
+| Penghematan tanpa uji ulang | Penurunan kualitas yang disamarkan | Jalankan set uji yang sama sebelum dan sesudah |
 | Keterbatasan tidak disebut | Pembaca menggeneralisasi lebih jauh dari yang layak | Bagian 9 wajib diisi sungguh-sungguh |

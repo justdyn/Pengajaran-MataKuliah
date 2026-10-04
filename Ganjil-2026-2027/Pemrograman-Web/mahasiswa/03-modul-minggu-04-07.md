@@ -30,9 +30,9 @@ Laravel menyediakan beberapa tempat menyimpan state, dan **memilih tempat yang s
 | Tempat | Umur | Cocok untuk | Bahaya |
 |--------|------|-------------|--------|
 | **Query string** (`?q=basis`) | Selama URL itu | Filter, pencarian, halaman | Terlihat pengguna, bisa diubah |
-| **Session** | Selama browser terbuka | Identitas login, data wizard multi-langkah | Boros kalau diisi data besar |
+| **Session** | 120 menit sejak aktivitas terakhir (`SESSION_LIFETIME`), tetap hidup meski browser ditutup | Identitas login, data wizard multi-langkah | Boros kalau diisi data besar |
 | **Flash session** | Satu request berikutnya | Pesan sukses/gagal setelah redirect | Hilang kalau tidak segera dibaca |
-| **Cookie** | Sesuai kadaluarsa | Preferensi tampilan | Sepenuhnya di tangan pengguna |
+| **Cookie** | Sesuai kadaluarsa | Preferensi tampilan | Bisa dihapus atau tidak dikirim pengguna; isinya dienkripsi Laravel sehingga tidak bisa dibaca atau dipalsukan |
 | **Database** | Permanen | Apa pun yang harus bertahan | — |
 
 Aturan praktisnya: **filter dan pencarian ke query string, jangan ke session.** Kalau filter disimpan di session, pengguna tidak bisa membagikan tautan hasil pencariannya, tombol *back* jadi kacau, dan membuka dua tab akan saling mengganggu.
@@ -141,8 +141,9 @@ public function index(Request $request)
     $courses = Course::query()
         ->with('lecturer')
         ->when($request->filled('q'), fn ($query) =>
-            $query->where('name', 'like', '%' . $request->q . '%')
-                  ->orWhere('code', 'like', '%' . $request->q . '%'))
+            $query->where(fn ($q) =>
+                $q->where('name', 'like', '%' . $request->q . '%')
+                  ->orWhere('code', 'like', '%' . $request->q . '%')))
         ->when($request->filled('status'), fn ($query) =>
             $query->where('status', $request->status))
         ->latest()
@@ -153,10 +154,11 @@ public function index(Request $request)
 }
 ```
 
-Tiga detail yang sering terlewat:
+Empat detail yang sering terlewat:
 
+- **`where(fn ($q) => ...)` membungkus `orWhere`.** Tanpa pembungkus, SQL-nya menjadi `name LIKE ? OR (code LIKE ? AND status = ?)` karena `AND` diproses lebih dulu daripada `OR`. Akibatnya setiap mata kuliah yang namanya cocok lolos dari filter status. Di minggu 7, saat daftar disaring per peran, kesalahan yang sama membuat mata kuliah milik orang lain ikut tampil. Aturannya: **setiap `orWhere` yang digabung dengan kondisi lain harus dibungkus closure.**
 - **`->withQueryString()`** membuat tautan halaman 2 tetap membawa filter yang aktif. Tanpa ini, pengguna mencari "basis data", klik halaman 2, dan filternya hilang. Bug klasik.
-- **`->with('lecturer')`** adalah *eager loading*. Tanpa ini, 15 baris berarti 16 query. Minggu 11 kita bahas tuntas, tapi kebiasaannya dimulai sekarang.
+- **`->with('lecturer')`** adalah *eager loading*. Tanpa ini, 15 baris berarti 17 query: satu `COUNT` untuk pagination, satu untuk daftar, dan 15 untuk dosen. Minggu 11 kita bahas tuntas, tapi kebiasaannya dimulai sekarang.
 - **`Course::query()`** sebagai pembuka membuat rantai `when()` terbaca rapi dan menghindari kondisi bersarang.
 
 ---
@@ -254,7 +256,7 @@ Tanpa AI. Buat form tambah mata kuliah, isi dengan data yang pasti tidak valid (
 5. Dari mana `old('sks')` mengambil nilainya? Berapa lama nilai itu bertahan?
 6. Buka DevTools → Application → Cookies. Temukan cookie session Laravel. Catat namanya.
 
-### BREAK — Tujuh kerusakan (45 menit)
+### BREAK — Delapan kerusakan (50 menit)
 
 Tulis prediksi lebih dulu, baru jalankan.
 
@@ -267,6 +269,7 @@ Tulis prediksi lebih dulu, baru jalankan.
 | 5 | Hapus `->withQueryString()`, lakukan pencarian lalu klik halaman 2 | Filter hilang — bug klasik |
 | 6 | Ganti `return redirect()` menjadi `return view()` pada `store`, lalu tekan F5 setelah simpan | Data ganda; ini alasan PRG ada |
 | 7 | Hapus `old(...)` dari semua input, lalu kirim form dengan satu kesalahan | Rasakan sendiri sebagai pengguna |
+| 8 | Hapus pembungkus `where(fn ($q) => ...)` pada pencarian, lalu cari kata yang cocok di nama sambil memfilter `status=archived` | Mata kuliah aktif ikut tampil — cetak SQL-nya dengan `->toRawSql()` dan temukan sebabnya |
 
 Nomor 2 dan 3 wajib dicoba lewat `curl`, bukan lewat browser:
 
@@ -686,7 +689,7 @@ Karena API tidak punya session, **setiap request harus membawa identitasnya send
 return response()->json(Course::all());   // ❌
 ```
 
-Baris itu mengirimkan **seluruh kolom** — termasuk yang tidak seharusnya dilihat klien. Pada model `User`, itu berarti hash password, token reset, alamat email semua orang. Kebocoran data paling umum di API buatan pemula bukan hasil peretasan, melainkan `return response()->json($user)`.
+Baris itu mengirimkan **seluruh kolom** — termasuk yang tidak seharusnya dilihat klien. Pada model `User`, itu berarti alamat email semua orang, waktu verifikasi, peran, dan kolom apa pun yang Anda tambahkan kelak. Hash password dan `remember_token` memang disembunyikan oleh `$hidden` bawaan — tetapi `$hidden` adalah **daftar hitam** yang bergantung pada ingatan developer: kolom sensitif baru yang lupa didaftarkan langsung bocor. API Resource adalah **daftar putih**: hanya kolom yang Anda sebut yang keluar. Kebocoran data paling umum di API buatan pemula bukan hasil peretasan, melainkan `return response()->json($user)`.
 
 Cara yang benar:
 
@@ -900,7 +903,7 @@ dosen@kampuslms.test dan seterusnya).
 
 | # | Yang dicoba | Yang harus Anda amati |
 |---|-------------|------------------------|
-| 1 | Kembalikan `response()->json(User::all())` di satu endpoint uji | **Hash password tampil di layar** |
+| 1 | Kembalikan `response()->json(User::all())` di satu endpoint uji | **Email dan seluruh kolom pengguna tampil di layar.** Lalu hapus sementara `$hidden` dari model `User` dan ulangi: hash password ikut tampil |
 | 2 | Hapus `auth:sanctum` dari grup route, panggil tanpa token | Data terbuka untuk publik |
 | 3 | Panggil endpoint terlindungi dengan token yang sudah dihapus | 401 |
 | 4 | Login sebagai mahasiswa, panggil `POST /api/v1/assignments` | Harus 403, bukan 401 — periksa punya Anda |
@@ -908,7 +911,7 @@ dosen@kampuslms.test dan seterusnya).
 | 6 | Hapus `throttle` dari login, jalankan 50 percobaan berturut-turut | Brute force tanpa hambatan |
 | 7 | Buat pesan login berbeda untuk email salah vs password salah | *User enumeration* — kenapa ini berbahaya |
 
-Nomor 1 wajib benar-benar dilihat. Melihat hash password dan email seluruh pengguna tampil rapi dalam JSON adalah pengalaman yang membuat mahasiswa tidak pernah lagi mengembalikan model mentah.
+Nomor 1 wajib benar-benar dilihat. Melihat email seluruh pengguna tampil rapi dalam JSON — lalu melihat hash password ikut muncul begitu satu baris `$hidden` hilang — adalah pengalaman yang membuat mahasiswa tidak pernah lagi mengembalikan model mentah.
 
 ### FIX — Repo cacat (30 menit)
 
@@ -966,7 +969,7 @@ Aplikasi yang autentikasinya sempurna tetapi otorisasinya bolong justru lebih be
 
 ### Memasang autentikasi
 
-Untuk KampusLMS, gunakan starter kit resmi Laravel 12 atau Laravel Breeze. Yang penting Anda **memahami** apa yang dipasangnya, bukan sekadar menjalankannya.
+Untuk KampusLMS, gunakan starter kit resmi Laravel 12 (Livewire, React, Vue, atau Svelte). Laravel Breeze masih bisa dipasang, tetapi sejak Laravel 12 Breeze dan Jetstream **tidak lagi menerima pembaruan** — pilih starter kit resmi kecuali kelompok Anda punya alasan kuat. Yang penting Anda **memahami** apa yang dipasangnya, bukan sekadar menjalankannya.
 
 Setelah terpasang, telusuri sendiri: di mana form login, controller mana yang memprosesnya, di mana session dibuat, dan di mana `Auth::attempt()` dipanggil.
 

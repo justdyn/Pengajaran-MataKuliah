@@ -11,9 +11,9 @@
 |---|---|---|
 | [01-spesifikasi-proyek.md](01-spesifikasi-proyek.md) | Minggu 1 | Produk berlapis yang Anda bangun sepanjang semester |
 | [02-modul-minggu-01-03.md](02-modul-minggu-01-03.md) | Minggu 1 | Blok A — Fondasi: memahami mesinnya |
-| [03-modul-minggu-04-06.md](03-modul-minggu-04-06.md) | Minggu 4 | Blok B — Kendali: mengarahkan keluaran |
+| [03-modul-minggu-04-06.md](03-modul-minggu-04-06.md) | Minggu 4 | Blok B — Kendali: mengarahkan output model |
 | [04-modul-minggu-07-09-uts.md](04-modul-minggu-07-09-uts.md) | Minggu 6 | Blok C — Grounding (RAG) dan aturan UTS |
-| [05-modul-minggu-10-13.md](05-modul-minggu-10-13.md) | Minggu 9 | Blok D — Agentic: dari tool menjadi pelaku |
+| [05-modul-minggu-10-13.md](05-modul-minggu-10-13.md) | Minggu 9 | Blok D — Agentic: dari tool menjadi agent |
 | [06-modul-minggu-14-16-uas.md](06-modul-minggu-14-16-uas.md) | Minggu 13 | Blok E — Kematangan, evaluasi, etika, dan UAS |
 
 Baca bagian **Konsep** *sebelum* pertemuan. Tatap muka hanya 100 menit per minggu dan hampir seluruhnya dipakai untuk mengerjakan produk Anda sendiri, bukan mendengarkan ceramah. Itulah alasan bagian Konsep dibaca di rumah: waktu di kelas terlalu berharga untuk dipakai mengejar bacaan.
@@ -31,14 +31,14 @@ Baca bagian **Konsep** *sebelum* pertemuan. Tatap muka hanya 100 menit per mingg
 | [lampiran/G-glosarium.md](lampiran/G-glosarium.md) | Padanan istilah Inggris dan Indonesia, serta di minggu mana tiap istilah diperkenalkan |
 | [lampiran/H-rencana-instrumen-dan-rubrik.md](lampiran/H-rencana-instrumen-dan-rubrik.md) | Seluruh yang dinilai sepanjang semester beserta rubriknya, dalam satu tempat |
 
-Lampiran E memuat semua pertanyaan pertanggungjawaban. Ia tidak dirahasiakan karena tidak satu pun dapat dijawab dengan menghafal — semuanya menunjuk ke produk Anda sendiri dan menanyakan keputusan yang Anda ambil di dalamnya.
+Lampiran E memuat semua pertanyaan pertanggungjawaban. Lampiran ini sengaja dibuka karena tidak ada satu pun pertanyaan yang bisa dijawab dengan hafalan. Semuanya menanyakan produk Anda sendiri dan keputusan yang Anda ambil saat membuatnya.
 
 ---
 
 ## Enam hal yang perlu Anda ketahui sebelum Minggu 1
 
 **1. Anda tidak perlu bisa memrogram, tetapi Anda wajib bisa menjelaskan.**
-Kelas ini memakai *AI-assisted development*: Anda merakit sistem dengan bantuan asisten pemrograman berbasis AI. Jadi yang dinilai bukan kemampuan mengetik kode, tapi ketepatan rancangan, kualitas evaluasi, dan kematangan pertimbangan etis Anda. Kemampuan menjelaskan karya sendiri adalah inti dari semuanya — dan itu keterampilan yang bisa dilatih, bukan bakat.
+Kelas ini memakai *AI-assisted development*: Anda merakit sistem dengan bantuan asisten pemrograman berbasis AI. Jadi yang dinilai bukan kemampuan mengetik kode, tapi ketepatan rancangan, kualitas evaluasi, dan kematangan pertimbangan etis Anda. Intinya: Anda harus bisa menjelaskan karya sendiri. Ini keterampilan yang bisa dilatih, bukan bakat.
 
 **2. Kelas ini tidak punya asisten.** Konsekuensinya tiga:
 
@@ -46,7 +46,7 @@ Kelas ini memakai *AI-assisted development*: Anda merakit sistem dengan bantuan 
 |---|---|
 | Tidak ada yang mengecek pekerjaan Anda baris per baris di kelas | Verifikasi dilakukan **oleh Anda sendiri** memakai daftar periksa di akhir tiap minggu |
 | Bantuan teknis satu-per-satu terbatas | Pertanyaan teknis dibawa ke forum kelas dulu; yang sudah terjawab di sana tidak diulang di kelas |
-| Penilaian bertumpu pada artefak, bukan pengamatan langsung | Repositori dan catatan proses adalah satu-satunya jendela dosen ke kerja Anda — kerja bagus yang tidak tercatat di sana tidak bisa dinilai |
+| Penilaian didasarkan pada hasil kerja yang dikumpulkan, bukan pengamatan langsung | Dosen hanya bisa melihat kerja Anda lewat repositori dan catatan proses. Kerja bagus yang tidak tercatat di sana tidak bisa dinilai |
 
 Aturan **tiga puluh menit**: kalau macet, coba mandiri 30 menit dulu, lalu tulis pertanyaan di forum memakai format di Lampiran F. Format itu meminta Anda menyebutkan apa yang sudah dicoba — bukan untuk mempersulit, tapi karena separuh persoalan biasanya terpecahkan saat Anda menuliskannya, dan sisanya jadi jauh lebih cepat dijawab.
 
@@ -58,10 +58,10 @@ Setiap blok menambah satu lapisan ke produk yang sama:
 
 ```
 Minggu 1–3   Fondasi        →  Anda memahami mesin dan berhasil memanggil model
-Minggu 4–6   Kendali        →  Produk menghasilkan keluaran terstruktur dan memanggil tool
+Minggu 4–6   Kendali        →  Produk menghasilkan output dengan format tetap dan bisa memanggil tool
 Minggu 7–9   Grounding      →  Produk menjawab berdasarkan dokumen milik Anda, dengan sumber
 Minggu 10–13 Agentic       →  Produk menyelesaikan tugas bertahap secara mandiri, dengan guardrails
-Minggu 14–16 Kematangan     →  Produk teruji, terukur biayanya, dan dipertanggungjawabkan
+Minggu 14–16 Kematangan     →  Produk teruji, terukur biayanya, dan bisa Anda jelaskan serta pertahankan
 ```
 
 Tiap lapisan berdiri di atas lapisan sebelumnya, jadi tidak ada jalan pintas ke Minggu 13. Sisi baiknya: Anda tidak pernah memulai dari nol, dan kerja Minggu 2 masih terpakai di Minggu 15.
@@ -74,13 +74,13 @@ Minggu 1–6 memberi prompt dan langkah yang siap pakai. Mulai Minggu 7 contoh p
 | Tahap | Yang dikerjakan | Waktu khas |
 |---|---|---|
 | **READ** | Menjalankan sesuatu yang sudah bekerja dan menjelaskan *mengapa* ia bekerja. Dikerjakan **tanpa AI** | 20 menit |
-| **BREAK** | Merusak sendiri dari tabel percobaan. **Kolom prediksi diisi sebelum mencoba** | 25 menit |
+| **BREAK** | Sengaja merusak sistem mengikuti tabel percobaan. **Kolom prediksi diisi sebelum mencoba** | 25 menit |
 | **FIX** | Memperbaiki kasus rusak yang disediakan dosen; jumlah kesalahannya selalu diberitahukan | 20 menit |
 | **BUILD** | Menambah satu lapisan ke produk Anda sendiri | 35 menit + mandiri |
 
 Kolom prediksi tidak dinilai benar atau salahnya. Yang dinilai adalah apakah Anda mengisinya **sebelum** mencoba. Prediksi yang meleset dan tercatat jujur justru bahan terbaik untuk catatan proses Anda — di situlah terlihat apa yang tadinya Anda kira, dan apa yang ternyata terjadi.
 
-Tahap READ dikerjakan tanpa AI karena ia satu-satunya bagian yang mengukur apakah Anda benar-benar paham. Tiga tahap lain boleh, bahkan dianjurkan, memakai AI.
+Tahap READ dikerjakan tanpa AI karena hanya tahap ini yang benar-benar menguji pemahaman Anda. Tiga tahap lain boleh, bahkan dianjurkan, memakai AI.
 
 ---
 
@@ -89,7 +89,7 @@ Tahap READ dikerjakan tanpa AI karena ia satu-satunya bagian yang mengukur apaka
 Penggunaan AI **diizinkan dan diharapkan**, dengan tiga syarat:
 
 1. **Transparan.** Setiap penggunaan dicantumkan pada catatan proses (Lampiran C): apa yang Anda minta, apa yang dikembalikan, dan apa yang Anda ubah.
-2. **Terpahami.** Anda mampu menjelaskan setiap bagian karya Anda. Kalau ada bagian yang belum bisa Anda jelaskan, itu tanda bagian itu belum selesai dipelajari — dan lebih baik ketahuan sekarang daripada di Minggu 16.
+2. **Dipahami.** Anda mampu menjelaskan setiap bagian karya Anda. Kalau ada bagian yang belum bisa Anda jelaskan, itu tanda bagian itu belum selesai dipelajari — dan lebih baik ketahuan sekarang daripada di Minggu 16.
 3. **Bertanggung jawab.** Kesalahan pada karya tetap tanggung jawab Anda, bukan alat yang Anda pakai.
 
 **Satu batas yang tidak boleh dilewati:** jangan menempelkan data pribadi orang lain, dokumen rahasia organisasi, kredensial asli, atau data penelitian pihak lain yang belum dipublikasikan ke layanan AI mana pun. Ini bukan soal nilai; ini kebiasaan profesi yang akan Anda bawa keluar dari kelas ini.
@@ -110,7 +110,7 @@ Penggunaan AI **diizinkan dan diharapkan**, dengan tiga syarat:
 
 Bobot di dalam setiap luaran mingguan: **rancangan dan alasannya 35%, bukti bahwa ia bekerja 25%, catatan proses 25%, tantangan wajib 15%.**
 
-Perhatikan bahwa "sistemnya jalan" hanya bernilai seperempat. Sistem yang jalan tanpa alasan yang dapat dijelaskan adalah kebetulan, dan kebetulan tidak dinilai.
+Perhatikan: "sistemnya jalan" hanya bernilai seperempat. Sistem yang jalan tapi Anda tidak tahu kenapa, itu kebetulan — dan kebetulan tidak dinilai.
 
 ## Yang dikumpulkan setiap minggu
 
@@ -118,7 +118,7 @@ Satu file terkompresi bernama `<NIM>-m<minggu>.zip`, berisi:
 
 1. **Artefak produk** — file kerja Anda, kumulatif, bukan hanya bagian minggu itu
 2. **`catatan-proses.md`** — memakai template Lampiran C, maksimal 2 halaman
-3. **`bukti/`** — tangkapan layar atau rekaman keluaran yang membuktikan sistem berjalan, beserta masukan yang dipakai
+3. **`bukti/`** — tangkapan layar atau rekaman output yang membuktikan sistem berjalan, beserta input yang dipakai
 
 Batas pengumpulan: **H+2 setelah pertemuan, pukul 23.59.**
 
@@ -136,7 +136,7 @@ Enam poin di atas menjelaskan cara kelas ini bekerja. Bagian ini menjelaskan bat
 | Data sensitif ke layanan AI | Ditangani terpisah dari penilaian, sebagai persoalan etika profesi |
 | Klaim keberhasilan tanpa bukti | Dinilai lebih rendah daripada laporan kegagalan yang jujur. Ini disengaja |
 
-Kalau ada keadaan yang membuat salah satu ketentuan ini memberatkan Anda secara tidak wajar — sakit, urusan keluarga, kendala perangkat — bicarakan lebih awal. Yang sulit ditolong adalah kabar yang datang setelah tenggat lewat.
+Kalau ada keadaan yang membuat salah satu ketentuan ini memberatkan Anda secara tidak wajar — sakit, urusan keluarga, kendala perangkat — bicarakan lebih awal. Yang sulit dibantu adalah kabar yang baru datang setelah tenggat lewat.
 
 ---
 
@@ -145,17 +145,17 @@ Kalau ada keadaan yang membuat salah satu ketentuan ini memberatkan Anda secara 
 | Mgg | Pokok Bahasan | Tahap | Yang dikumpulkan |
 |:--:|---|---|---|
 | 1 | Orientasi, kontrak kuliah, lanskap AI generatif | READ | Peta minat dan calon persoalan |
-| 2 | Anatomi model: token, konteks, suhu, halusinasi | READ–BREAK | Laporan pengamatan perilaku model |
+| 2 | Anatomi model: token, context window, temperature, hallucination | READ–BREAK | Laporan pengamatan perilaku model |
 | 3 | Lingkungan kerja dan model gateway | BUILD | Bukti pemanggilan model pertama · **Kuis 1** |
-| 4 | Instruksi terstruktur dan teknik penalaran | Empat tahap | **Lembar tema proyek** + pustaka instruksi v1 |
-| 5 | Keluaran terstruktur dan skema sebagai kontrak | Empat tahap | Prototipe berkeluaran berformat |
-| 6 | Pemanggilan tool | Empat tahap | Prototipe memanggil tool · **Kuis 2** |
+| 4 | Prompt terstruktur dan teknik penalaran | Empat tahap | **Lembar tema proyek** + kumpulan prompt v1 |
+| 5 | Structured output dan schema sebagai aturan format | Empat tahap | Prototipe dengan output berformat tetap |
+| 6 | Tool calling | Empat tahap | Prototipe memanggil tool · **Kuis 2** |
 | 7 | Konsep *embedding* dan retrieval | Empat tahap | Rancangan alur RAG |
 | 8 | **UTS** — presentasi rancangan sistem | — | Dokumen rancangan + presentasi |
-| 9 | Merakit RAG utuh, menangani jawaban tak berdasar | Empat tahap | Produk menjawab berbasis dokumen |
-| 10 | Dari *workflow* ke *agent* | Empat tahap | Analisis komparatif dua pendekatan |
-| 11 | Tool, memori, orkestrasi langkah majemuk | Empat tahap | Agen menyelesaikan tugas bertahap |
-| 12 | Studi kasus praktisi: arsitektur agen produksi | READ | Kritik arsitektur + peer review |
+| 9 | Merakit RAG utuh, menangani jawaban tanpa dasar dokumen | Empat tahap | Produk menjawab berbasis dokumen |
+| 10 | Dari *workflow* ke *agent* | Empat tahap | Analisis perbandingan dua pendekatan |
+| 11 | Tool, memory, dan pengaturan tugas banyak langkah | Empat tahap | Agent menyelesaikan tugas bertahap |
+| 12 | Studi kasus praktisi: arsitektur agent di dunia nyata | READ | Kritik arsitektur + peer review |
 | 13 | *Guardrails* dan *human-in-the-loop* | Empat tahap | Mekanisme guardrails pada produk |
 | 14 | Evaluasi sistematis dan pengendalian biaya | Empat tahap | Set uji dan laporan evaluasi |
 | 15 | Keamanan, etika, bias, tanggung jawab profesional | Empat tahap | Kajian risiko dan pernyataan etis |

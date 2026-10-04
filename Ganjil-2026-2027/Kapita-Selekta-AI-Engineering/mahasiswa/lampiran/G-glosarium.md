@@ -20,15 +20,15 @@ Padanan Indonesia tetap dicantumkan di sini karena dua alasan: peserta kelas ini
 
 | Istilah dipakai modul | Padanan Indonesia | Artinya |
 |---|---|---|
-| **prompt** | instruksi | Teks yang dikirim ke model untuk mengarahkan keluarannya |
+| **prompt** | instruksi | Teks yang dikirim ke model untuk mengarahkan output-nya |
 | **system prompt** | instruksi sistem | Instruksi tetap yang mengatur peran dan batas perilaku model |
 | **token** | — | Potongan teks sebagai satuan hitung model; menentukan biaya dan batas |
 | **context window** | jendela konteks | Jumlah token maksimum yang dapat dilihat model dalam satu pemanggilan |
 | **temperature** | suhu | Pengatur seberapa berani model memilih kemungkinan yang tidak paling atas |
-| **hallucination** | halusinasi | Keluaran yang terdengar masuk akal tetapi tidak berdasar |
+| **hallucination** | halusinasi | Output yang terdengar masuk akal tetapi tidak berdasar |
 | **prototipe** | purwarupa | Versi awal produk yang belum teruji untuk pemakaian sungguhan |
-| **structured output** | keluaran terstruktur | Keluaran yang wajib mengikuti satu format tetap |
-| **schema** | skema | Kontrak yang menetapkan medan, tipe, dan nilai yang sah pada keluaran |
+| **structured output** | keluaran terstruktur | Output yang wajib mengikuti satu format tetap |
+| **schema** | skema | Aturan yang menetapkan field, tipe, dan nilai yang valid pada output |
 | **tool** | perkakas | Fungsi di luar model yang dapat diminta model untuk dijalankan |
 | **tool calling** / **function calling** | pemanggilan perkakas | Mekanisme model meminta sistem menjalankan sebuah tool |
 | **model gateway** | gerbang model | Lapisan perantara: satu kredensial, banyak model di belakangnya |
@@ -50,12 +50,16 @@ Padanan Indonesia tetap dicantumkan di sini karena dua alasan: peserta kelas ini
 | **guardrails** | pengaman | Mekanisme yang membatasi apa yang boleh dilakukan sistem |
 | **human-in-the-loop** | keterlibatan manusia | Titik yang menuntut persetujuan manusia sebelum tindakan dijalankan |
 | **prompt injection** | penyusupan instruksi | Serangan berupa teks yang berperan sebagai instruksi bagi model |
-| **LLM-as-a-judge** | model sebagai penilai | Memakai model untuk menilai keluaran model lain pada set uji |
-| **variance** | variasi / derau | Perbedaan hasil antar-jalan pada masukan yang sama |
+| **LLM-as-a-judge** | model sebagai penilai | Memakai model untuk menilai output model lain pada set uji |
+| **variance** | variasi / derau | Perbedaan hasil antar-percobaan pada input yang sama |
 | **reproducibility** | keterulangan | Sejauh mana hasil yang sama dapat diperoleh ulang |
 | **caching** | penyimpanan sementara | Menyimpan hasil yang berulang agar tidak dihitung ulang |
 | **peer review** | telaah sejawat | Menelaah dan mengkritik karya rekan secara terstruktur |
 | **latency** | latensi | Waktu tanggap sistem |
+| **field** | kolom / ruas | Satu isian bernama di dalam output terstruktur, misalnya `kategori` |
+| **valid** | sah | Sesuai dengan aturan schema |
+| **baseline** | garis dasar | Angka awal yang menjadi pembanding untuk perbaikan berikutnya |
+| **input / output** | masukan / keluaran | Apa yang masuk ke sistem dan apa yang dihasilkannya |
 | **READ · BREAK · FIX · BUILD** | amati · patahkan · perbaiki · rakit | Nama keempat tahap siklus mingguan. Dipertahankan dalam bahasa Inggris agar sama dengan DMJK dan Proweb |
 
 ---

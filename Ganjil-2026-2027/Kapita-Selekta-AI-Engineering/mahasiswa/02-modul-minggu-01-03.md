@@ -11,9 +11,9 @@
 
 ## Tentang Minggu 1–3: belum ada produk, dan itu disengaja
 
-Tiga minggu pertama tidak menghasilkan produk apa pun. Yang dihasilkan adalah kemampuan menjawab satu pertanyaan yang akan menghantui seluruh semester: **kapan model bahasa besar merupakan jawaban yang tepat, dan kapan ia adalah alat yang salah.**
+Tiga minggu pertama tidak menghasilkan produk apa pun. Yang dihasilkan adalah kemampuan menjawab satu pertanyaan yang akan terus muncul sepanjang semester: **kapan model bahasa besar (LLM) memang solusi yang tepat, dan kapan justru alat yang salah.**
 
-Tanpa jawaban itu, sangat mungkin Anda membangun sesuatu yang terlihat bekerja sepanjang semester, lalu goyah begitu dievaluasi di Minggu 14 — dan tidak punya cara menjelaskan kenapa. Tiga minggu ini yang mencegahnya.
+Tanpa jawaban itu, bisa jadi Anda membangun sesuatu yang kelihatannya jalan sepanjang semester, lalu gagal saat dievaluasi di Minggu 14 — dan Anda tidak tahu kenapa. Tiga minggu ini untuk mencegah hal itu.
 
 Contoh angka di modul ini memakai **K = 7**. Kode peserta Anda berbeda.
 
@@ -22,9 +22,9 @@ Contoh angka di modul ini memakai **K = 7**. Kode peserta Anda berbeda.
 
 # MINGGU 1 — Lanskap: AI Engineering Bukan Machine Learning
 
-**Sub-CPMK-1** · Menjelaskan lanskap AI generatif dan karakteristik operasional model bahasa besar **(C2)**
+**Sub-CPMK-1** · Menjelaskan gambaran umum AI generatif dan cara kerja model bahasa besar **(C2)**
 **Target akhir minggu:** Anda dapat menempatkan sebuah persoalan pada peta — apakah ia persoalan AI Engineering, persoalan Machine Learning, persoalan basis data, atau bukan persoalan AI sama sekali.
-**Catatan penilaian:** Minggu 1 tidak berskor. Ia syarat melanjutkan, dan tempat Anda menerima kode peserta **K**.
+**Catatan penilaian:** Minggu 1 tidak dinilai. Minggu ini menjadi syarat untuk lanjut, dan di sini Anda menerima kode peserta **K**.
 
 ---
 
@@ -32,46 +32,46 @@ Contoh angka di modul ini memakai **K = 7**. Kode peserta Anda berbeda.
 
 ### Empat disiplin yang sering dikira sama
 
-| Disiplin | Pertanyaan pokoknya | Luaran khasnya |
+| Disiplin | Pertanyaan utamanya | Hasil khasnya |
 |---|---|---|
 | Data Science | Apa yang dikatakan data ini? | Temuan, laporan, visualisasi |
 | Machine Learning | Bagaimana membuat model yang belajar dari data ini? | Model terlatih beserta metriknya |
 | **AI Engineering** | **Bagaimana merakit sistem andal di atas model yang sudah ada?** | **Produk yang jalan, terukur, dan terkendali** |
-| Rekayasa Perangkat Lunak | Bagaimana membangun sistem yang benar dan terpelihara? | Perangkat lunak |
+| Rekayasa Perangkat Lunak | Bagaimana membangun sistem yang benar dan mudah dirawat? | Perangkat lunak |
 
-AI Engineering meminjam disiplin uji dan rancang dari Rekayasa Perangkat Lunak, meminjam kebiasaan mengukur dari Machine Learning, tetapi berbeda dari keduanya dalam satu hal mendasar: **komponen intinya tidak deterministik dan tidak Anda kendalikan.** Anda tidak melatih modelnya. Anda tidak dapat memastikan keluarannya sama untuk masukan yang sama. Yang dapat Anda kendalikan hanyalah apa yang masuk, apa yang keluar, dan apa yang terjadi di sekelilingnya.
+AI Engineering mengambil cara menguji dan merancang dari Rekayasa Perangkat Lunak, dan kebiasaan mengukur dari Machine Learning. Tapi ada satu perbedaan mendasar: **komponen utamanya (model) tidak deterministik dan tidak bisa Anda kendalikan.** Anda tidak melatih modelnya. Anda tidak dapat memastikan output-nya sama untuk input yang sama. Yang dapat Anda kendalikan hanyalah apa yang masuk, apa yang keluar, dan apa yang terjadi di sekelilingnya.
 
-Seluruh mata kuliah ini adalah tentang tiga hal yang masih dapat Anda kendalikan itu.
+Seluruh mata kuliah ini membahas tiga hal yang masih bisa Anda kendalikan itu.
 
 ### Pergeseran cara berpikir yang paling sulit
 
-Dalam pemrograman biasa, Anda menulis aturan dan mesin menjalankannya persis. Dalam AI Engineering, Anda menulis *maksud* dan mesin menafsirkannya — kadang tepat, kadang tidak, dan tafsir yang sama bisa berbeda pada percobaan berikutnya.
+Dalam pemrograman biasa, Anda menulis aturan dan komputer menjalankannya persis. Dalam AI Engineering, Anda menulis *maksud* dan model mengartikannya sendiri — kadang tepat, kadang tidak, dan hasilnya bisa berbeda di percobaan berikutnya.
 
-Konsekuensi yang paling sering diabaikan pemula: **sistem Anda tidak dapat dinyatakan "benar", hanya "cukup andal untuk penggunaan tertentu".** Karena itu evaluasi bukan tahap terakhir yang dikerjakan kalau sempat, tapi syarat agar klaim apa pun tentang sistem Anda bermakna.
+Akibatnya, dan ini sering dilupakan pemula: **sistem Anda tidak bisa disebut "benar", paling jauh "cukup bisa diandalkan untuk kebutuhan tertentu".** Jadi evaluasi bukan tahap terakhir yang dikerjakan kalau sempat. Tanpa evaluasi, klaim apa pun tentang sistem Anda tidak ada artinya.
 
-### Kapan model bahasa besar adalah alat yang salah
+### Kapan model bahasa besar justru alat yang salah
 
 Empat tanda bahwa Anda tidak membutuhkannya:
 
 1. **Jawabannya pasti.** Menghitung pajak, memvalidasi format NIM, mengurutkan data. Aturan biasa lebih murah, lebih cepat, dan tidak pernah salah.
 2. **Kesalahan tidak dapat ditoleransi sama sekali.** Kalau satu jawaban salah berakibat fatal dan tidak ada manusia yang memeriksa, model bahasa bukan pilihan.
-3. **Tidak ada cara memeriksa keluarannya.** Kalau tidak seorang pun dapat menilai jawabannya benar, Anda membangun mesin penghasil keyakinan palsu.
-4. **Datanya terlalu kecil dan terstruktur.** Sepuluh baris tabel tidak butuh retrieval; ia butuh tabel.
+3. **Tidak ada cara memeriksa output-nya.** Kalau tidak ada yang bisa menilai jawabannya benar atau salah, sistem Anda hanya terlihat meyakinkan tanpa bisa dipercaya.
+4. **Datanya terlalu kecil dan terstruktur.** Sepuluh baris data tidak butuh retrieval; cukup pakai tabel biasa.
 
-Salah satu keterampilan yang dinilai di kelas ini adalah keberanian mengatakan "persoalan ini tidak butuh AI". Karena itu **ketepatan rumusan masalah berbobot 20%** pada produk akhir (Lampiran H): memilih persoalan yang memang cocok untuk AI bernilai sama pentingnya dengan membangunnya dengan baik.
+Salah satu keterampilan yang dinilai di kelas ini adalah keberanian mengatakan "persoalan ini tidak butuh AI". Karena itu **ketepatan rumusan masalah berbobot 20%** pada produk akhir (Lampiran H): memilih persoalan yang memang cocok untuk AI sama pentingnya dengan membangunnya dengan baik.
 
 ### Peta perjalanan semester
 
 ```
-   Model mentah          →  keluarannya liar, tak berformat, tak berdasar
+   Model apa adanya       →  output bebas, format tidak tetap, bisa mengarang
         │  Blok B: kendali
-   Keluaran terkendali    →  berformat tetap, dapat memanggil tool
+   Structured output      →  format tetap, bisa memanggil tool
         │  Blok C: grounding
-   Jawaban berdasar       →  bersumber dari dokumen Anda, dapat ditelusuri
+   Jawaban dari dokumen   →  bersumber dari dokumen Anda, sumbernya bisa dicek
         │  Blok D: agentic
-   Pelaku mandiri         →  merencanakan, bertindak bertahap, punya guardrails
+   Agent                  →  merencanakan, bertindak bertahap, punya guardrails
         │  Blok E: kematangan
-   Produk yang teruji     →  terukur kualitas, biaya, dan risikonya
+   Produk yang teruji     →  kualitas, biaya, dan risikonya sudah diukur
 ```
 
 ---
@@ -115,7 +115,7 @@ Jangan menempelkan dokumen internal organisasi, data pribadi orang lain, atau da
 
 ## 1.3 READ → BREAK → FIX → BUILD
 
-### READ — Tiga persoalan, satu peta (25 menit, tanpa AI)
+### READ — Tiga persoalan, pilih disiplinnya (25 menit, tanpa AI)
 
 Ambil tiga persoalan berikut. Untuk masing-masing, tentukan disiplin mana yang sebenarnya dibutuhkan, lalu tuliskan alasannya dalam satu kalimat.
 
@@ -129,7 +129,7 @@ Kemudian jawab: **persoalan nomor berapa yang berubah jawabannya kalau jumlah da
 
 ### BREAK — Pertanyaan yang sama, jawaban yang berbeda (25 menit)
 
-> **Alat untuk percobaan ini.** Pakai antarmuka chat mana pun yang Anda punya — kredensial model gateway kelas baru dibutuhkan Minggu 3, jadi jangan menunggu. Catat **model apa dan tanggal berapa** Anda mencobanya di catatan proses: jawaban model berubah antar versi, dan tanpa catatan itu hasil Anda tidak dapat ditelusuri ulang. Hasil Anda **tidak harus sama** dengan hasil rekan — yang diamati gejalanya, bukan angkanya.
+> **Alat untuk percobaan ini.** Pakai antarmuka chat mana pun yang Anda punya — kredensial model gateway kelas baru dibutuhkan Minggu 3, jadi jangan menunggu. Catat **model apa dan tanggal berapa** Anda mencobanya di catatan proses: jawaban model berubah antar versi, dan tanpa catatan itu hasil Anda tidak bisa dicek ulang. Hasil Anda **tidak harus sama** dengan hasil teman — yang diamati polanya, bukan angkanya.
 
 Isi kolom prediksi **sebelum** mencoba.
 
@@ -140,11 +140,11 @@ Isi kolom prediksi **sebelum** mencoba.
 | 3 | Ajukan pertanyaan tentang dokumen internal kampus Anda yang tidak pernah dipublikasikan | | |
 | 4 | Tanya hal yang jawabannya tidak ada, misalnya biografi tokoh yang Anda karang namanya | | |
 
-Nomor 3 dan 4 menghasilkan gejala mirip tetapi sebabnya berbeda. Jelaskan bedanya: pada nomor mana model **tidak tahu bahwa ia tidak tahu**?
+Nomor 3 dan 4 hasilnya mirip, tapi penyebabnya berbeda. Jelaskan bedanya: pada nomor mana model **tidak tahu bahwa ia tidak tahu**?
 
 ### FIX — Tidak ada pada minggu ini
 
-Tahap FIX dimulai Minggu 4, setelah Anda punya cukup dasar untuk mengenali gejala.
+Tahap FIX dimulai Minggu 4, setelah Anda punya cukup bekal untuk mengenali masalahnya.
 
 ### BUILD — Peta persoalan pribadi (mandiri)
 
@@ -155,12 +155,12 @@ Tahap FIX dimulai Minggu 4, setelah Anda punya cukup dasar untuk mengenali gejal
 |---|---|
 | Siapa yang mengalaminya | |
 | Bagaimana persoalan itu diselesaikan sekarang | |
-| Mengapa cara sekarang tidak memadai | |
+| Mengapa cara sekarang belum cukup | |
 | Apa yang menjadi bukti bahwa sistem berhasil | |
 | Sumber dokumen apa yang Anda miliki dan sah dipakai | |
 | Satu alasan mengapa AI **mungkin bukan** jawabannya | |
 
-3. Urutkan ketiganya dan sebutkan mana yang paling mungkin Anda pertahankan sampai Minggu 16, beserta alasannya.
+3. Urutkan ketiganya, lalu sebutkan mana yang paling mungkin Anda kerjakan sampai Minggu 16, beserta alasannya.
 
 **Tantangan wajib.** Temukan satu contoh nyata di kampus atau bidang Anda tempat AI generatif **sedang dipakai untuk persoalan yang salah**. Jelaskan mengapa ia salah dan apa yang seharusnya dipakai.
 
@@ -178,10 +178,10 @@ Tahap FIX dimulai Minggu 4, setelah Anda punya cukup dasar untuk mengenali gejal
 ---
 ---
 
-# MINGGU 2 — Anatomi: Token, Konteks, Suhu, dan Halusinasi
+# MINGGU 2 — Anatomi: Token, Context Window, Temperature, dan Hallucination
 
 **Sub-CPMK-1** · **(C2, C4)**
-**Target akhir minggu:** Anda dapat memperkirakan biaya dan batas sebuah pemanggilan model sebelum menjalankannya, dan menjelaskan halusinasi sebagai sifat bawaan, bukan cacat yang dapat ditambal.
+**Target akhir minggu:** Anda dapat memperkirakan biaya dan batas sebuah pemanggilan model sebelum menjalankannya, dan menjelaskan bahwa hallucination adalah sifat bawaan model, bukan bug yang bisa diperbaiki sekali jalan.
 
 ---
 
@@ -189,13 +189,13 @@ Tahap FIX dimulai Minggu 4, setelah Anda punya cukup dasar untuk mengenali gejal
 
 ### Apa yang sebenarnya dilakukan model bahasa besar
 
-Satu kalimat yang perlu Anda pegang seluruh semester:
+Satu kalimat yang perlu Anda ingat sepanjang semester:
 
-> Model bahasa besar memperkirakan potongan teks berikutnya yang paling mungkin, satu potongan demi satu potongan, berdasarkan seluruh teks yang sudah ada di hadapannya.
+> Model bahasa besar memperkirakan potongan teks berikutnya yang paling mungkin, satu potongan demi satu potongan, berdasarkan semua teks yang sudah ada sebelumnya.
 
-Ia tidak mencari jawaban di basis data. Ia tidak memeriksa kebenaran. Ia tidak "tahu" apa pun dalam arti manusia. Setiap kata yang terdengar percaya diri dan setiap kata yang salah dihasilkan oleh proses yang **persis sama**.
+Ia tidak mencari jawaban di basis data. Ia tidak memeriksa kebenaran. Ia tidak "tahu" apa pun dalam arti manusia. Kalimat yang benar dan kalimat yang salah dihasilkan lewat proses yang **persis sama**.
 
-Karena itu, dua hal berikut bukan kontradiksi: model dapat menulis paragraf yang benar secara mengagumkan, dan pada kalimat berikutnya mengarang nomor peraturan yang tidak pernah ada. Keduanya keluar dari mesin yang sama, dengan mekanisme yang sama.
+Karena itu, dua hal berikut bukan kontradiksi: model bisa menulis paragraf yang sangat tepat, lalu di kalimat berikutnya mengarang nomor peraturan yang tidak pernah ada. Keduanya berasal dari mekanisme yang sama.
 
 ### Token: satuan yang menentukan biaya dan batas
 
@@ -205,46 +205,46 @@ Yang perlu Anda hitung sendiri, bukan Anda kira-kira:
 
 ```
 Biaya satu pemanggilan
-  = (token masukan  × tarif masukan)
-  + (token keluaran × tarif keluaran)
+  = (token input  × tarif input)
+  + (token output × tarif output)
 
-Tarif keluaran biasanya BEBERAPA KALI LIPAT tarif masukan.
+Tarif output biasanya BEBERAPA KALI LIPAT tarif input.
 ```
 
-Implikasi yang segera terasa: memasukkan dokumen 50 halaman ke setiap pemanggilan bukan sekadar lambat — ia mahal, dan mahalnya berlipat pada setiap pengguna. Inilah alasan Blok C ada.
+Artinya: memasukkan dokumen 50 halaman ke setiap pemanggilan bukan cuma lambat, tapi juga mahal — dan biayanya berlipat untuk setiap pengguna. Inilah alasan Blok C ada.
 
-### Jendela konteks bukan ingatan
+### Context window bukan ingatan
 
-Jendela konteks adalah jumlah token maksimum yang dapat dilihat model **dalam satu pemanggilan**. Ia bukan ingatan. Model tidak mengingat percakapan sebelumnya; yang terjadi adalah seluruh percakapan dikirim ulang setiap kali. Itu sebabnya percakapan panjang makin lambat dan makin mahal.
+Context window adalah jumlah token maksimum yang dapat dilihat model **dalam satu pemanggilan**. Ia bukan ingatan. Model tidak mengingat percakapan sebelumnya; yang terjadi adalah seluruh percakapan dikirim ulang setiap kali. Itu sebabnya percakapan panjang makin lambat dan makin mahal.
 
-Dua gejala yang akan Anda temui dan sekarang punya namanya:
+Dua masalah yang akan sering Anda temui:
 
-- **Kehilangan di tengah.** Informasi di tengah konteks panjang lebih sering terlewat daripada yang di awal atau akhir.
-- **Pengenceran instruksi.** Instruksi sistem yang bagus di awal percakapan makin sering diabaikan setelah puluhan giliran.
+- **Lost in the middle.** Informasi di tengah teks yang panjang lebih sering terlewat dibanding yang di awal atau akhir.
+- **Instruksi makin diabaikan.** System prompt yang bagus di awal percakapan makin sering diabaikan setelah puluhan kali tanya-jawab.
 
-### Suhu: mengatur keberanian menebak
+### Temperature: mengatur seberapa "berani" model
 
-Suhu (*temperature*) mengatur seberapa besar model boleh memilih kemungkinan yang tidak paling atas.
+Temperature mengatur seberapa sering model boleh memilih kata yang bukan pilihan paling mungkin.
 
-| Suhu | Perilaku | Cocok untuk |
+| Temperature | Perilaku | Cocok untuk |
 |---|---|---|
-| Rendah (0–0,3) | Konsisten, dapat ditebak, cenderung membosankan | Ekstraksi data, klasifikasi, keluaran berformat |
+| Rendah (0–0,3) | Konsisten, dapat ditebak, cenderung membosankan | Ekstraksi data, klasifikasi, output berformat |
 | Sedang (0,4–0,7) | Seimbang | Penjelasan, ringkasan |
-| Tinggi (0,8+) | Beragam, kadang liar | Curah gagasan, variasi bahasa |
+| Tinggi (0,8+) | Beragam, kadang ngawur | Brainstorming, variasi bahasa |
 
-Kesalahan yang paling sering: mengira suhu 0 berarti keluaran **selalu** identik. Ia hanya membuat keluaran jauh lebih stabil, bukan dijamin sama.
+Salah kaprah yang paling sering: mengira temperature 0 berarti output **selalu** sama persis. Ia hanya membuat output jauh lebih stabil, bukan dijamin sama.
 
-### Halusinasi adalah sifat bawaan
+### Hallucination adalah sifat bawaan
 
-Model dilatih untuk menghasilkan lanjutan yang **masuk akal**, bukan lanjutan yang **benar**. Ketika ia tidak memiliki dasar, keluaran yang masuk akal dan keluaran yang benar berpisah — dan yang keluar adalah yang masuk akal.
+Model dilatih untuk menghasilkan lanjutan teks yang **masuk akal**, bukan yang **benar**. Kalau model tidak punya informasi yang cukup, jawaban yang masuk akal belum tentu benar — dan yang keluar tetap yang masuk akal.
 
-Karena itu halusinasi tidak dapat dihapus. Ia hanya dapat **dikurangi peluangnya** (dengan grounding di Blok C), **dibuat terdeteksi** (dengan keluaran terstruktur di Blok B), dan **dibatasi akibatnya** (dengan guardrails di Blok D). Tiga strategi itu adalah tulang punggung sisa semester ini.
+Karena itu hallucination tidak bisa dihilangkan. Yang bisa dilakukan: **mengurangi kemungkinannya** (dengan grounding di Blok C), **membuatnya mudah terdeteksi** (dengan structured output di Blok B), dan **membatasi dampaknya** (dengan guardrails di Blok D). Tiga strategi itulah inti sisa semester ini.
 
 ---
 
 ## 2.2 Prompt Pack — Minggu 2
 
-### A. Prompt Pengamatan Terpandu
+### A. Prompt Mengamati Jawaban Model
 
 ```
 Saya sedang mempelajari perilaku model bahasa besar.
@@ -257,25 +257,25 @@ periksa secara mandiri.
 Pertanyaan: <PERTANYAAN SEMPIT DARI BIDANG ANDA>
 ```
 
-### B. Prompt Perbandingan Suhu
+### B. Prompt Membandingkan Temperature
 
 ```
 Saya akan mengirim prompt yang sama beberapa kali dengan pengaturan
 berbeda. Bantu saya merancang satu prompt UJI yang perbedaan
-keluarannya akan TERLIHAT JELAS ketika suhu diubah dari 0 ke 1.
+output-nya akan TERLIHAT JELAS ketika temperature diubah dari 0 ke 1.
 
-Berikan juga satu prompt uji yang keluarannya SEHARUSNYA nyaris
-tidak berubah meskipun suhu diubah, dan jelaskan mengapa.
+Berikan juga satu prompt uji yang output-nya SEHARUSNYA nyaris
+tidak berubah meskipun temperature diubah, dan jelaskan mengapa.
 ```
 
 ### C. Prompt Hitung Biaya
 
 ```
 Bantu saya menghitung biaya. Konteks:
-- Panjang instruksi sistem saya: <N> kata
-- Panjang masukan pengguna khas: <N> kata
-- Panjang keluaran khas: <N> kata
-- Tarif model: masukan <X> dan keluaran <Y> per juta token
+- Panjang system prompt saya: <N> kata
+- Panjang input pengguna khas: <N> kata
+- Panjang output khas: <N> kata
+- Tarif model: input <X> dan output <Y> per juta token
 
 1. Perkirakan jumlah token tiap bagian (teks Indonesia).
 2. Hitung biaya satu pemanggilan.
@@ -289,11 +289,11 @@ Tunjukkan perhitungannya, jangan hanya hasil akhirnya.
 
 ## 2.3 READ → BREAK → FIX → BUILD
 
-### READ — Membaca keluaran dengan curiga (25 menit, tanpa AI)
+### READ — Membaca output dengan kritis (25 menit, tanpa AI)
 
-Ambil satu jawaban model tentang bidang Anda yang panjangnya kira-kira satu paragraf. Bedah dengan tabel berikut:
+Ambil satu jawaban model tentang bidang Anda yang panjangnya kira-kira satu paragraf. Uraikan dengan tabel berikut:
 
-| Pernyataan dalam jawaban | Dapat saya verifikasi? | Sumbernya apa? | Benar / salah / tak terperiksa |
+| Pernyataan dalam jawaban | Dapat saya verifikasi? | Sumbernya apa? | Benar / salah / tidak bisa dicek |
 |---|---|---|---|
 | | | | |
 
@@ -301,14 +301,14 @@ Isi sedikitnya lima baris. Lalu jawab: berapa persen pernyataan yang **tidak dap
 
 ### BREAK — Enam percobaan (30 menit)
 
-> **Alat untuk percobaan ini.** Pakai antarmuka chat mana pun yang Anda punya — kredensial model gateway kelas baru dibutuhkan Minggu 3, jadi jangan menunggu. Catat **model apa dan tanggal berapa** Anda mencobanya di catatan proses: jawaban model berubah antar versi, dan tanpa catatan itu hasil Anda tidak dapat ditelusuri ulang. Hasil Anda **tidak harus sama** dengan hasil rekan — yang diamati gejalanya, bukan angkanya.
+> **Alat untuk percobaan ini.** Percobaan 1 dan 2 butuh **pengaturan temperature**, yang tidak ada di aplikasi chat biasa — pakai konsol atau *playground* penyedia model; versi gratisnya sudah cukup. Percobaan 3–6 boleh di antarmuka mana pun. Kredensial model gateway kelas baru dibutuhkan Minggu 3, jadi jangan menunggu. Catat **model, temperature, dan tanggal** tiap percobaan di catatan proses: tanpa itu hasil Anda tidak bisa dicek ulang, dan laporan pengamatan minggu ini (Tugas 5%) tidak bisa dinilai. Hasil Anda **tidak harus sama** dengan hasil teman — yang diamati polanya, bukan angkanya.
 
-Isi prediksi lebih dulu. Catat keluaran apa adanya, termasuk yang memalukan.
+Isi prediksi lebih dulu. Catat output apa adanya, termasuk yang memalukan.
 
 | # | Percobaan | Prediksi Anda | Hasil sebenarnya |
 |---|---|---|---|
-| 1 | Prompt sama, suhu 0, dijalankan 3 kali | | |
-| 2 | Prompt sama, suhu 1, dijalankan 3 kali | | |
+| 1 | Prompt sama, temperature 0, dijalankan 3 kali | | |
+| 2 | Prompt sama, temperature 1, dijalankan 3 kali | | |
 | 3 | Minta jawaban ≤50 kata, lalu minta hal yang sama ≤500 kata | | |
 | 4 | Tanyakan nomor peraturan/pasal spesifik di bidang Anda, lalu minta model menyebutkan sumbernya | | |
 | 5 | Ulangi nomor 4, tetapi tambahkan kalimat: "Jika tidak yakin, jawab TIDAK TAHU" | | |
@@ -316,24 +316,24 @@ Isi prediksi lebih dulu. Catat keluaran apa adanya, termasuk yang memalukan.
 
 Nomor 4 dan 5 adalah inti minggu ini: apakah satu kalimat instruksi mengubah perilaku, dan apakah perubahannya dapat diandalkan? Ulangi nomor 5 sebanyak lima kali dan catat berapa kali ia benar-benar menjawab TIDAK TAHU.
 
-Nomor 6 menguji "kehilangan di tengah". Ulangi dengan kalimat aneh diletakkan di akhir teks dan bandingkan.
+Nomor 6 menguji "lost in the middle". Ulangi dengan kalimat aneh diletakkan di akhir teks dan bandingkan.
 
 ### FIX — Tidak ada pada minggu ini
 
 ### BUILD — Anggaran dan batas (mandiri)
 
 1. Pilih satu dari tiga calon persoalan Minggu 1 sebagai calon terkuat.
-2. Perkirakan untuk persoalan itu: panjang masukan khas, panjang keluaran khas, jumlah pemanggilan per tugas.
+2. Perkirakan untuk persoalan itu: panjang input khas, panjang output khas, jumlah pemanggilan per tugas.
 3. Hitung biaya per pemanggilan, per pengguna per bulan, dan untuk 100 pengguna. **Tunjukkan perhitungannya.**
 4. Tentukan batas anggaran pribadi Anda untuk semester ini dan tuliskan berapa pemanggilan yang berarti.
 
-**Tantangan wajib.** Rancang satu prompt yang membuat model **mengakui ketidaktahuannya secara konsisten** pada lima pertanyaan yang jawabannya memang tidak ada. Laporkan berapa dari lima yang berhasil, dan prompt versi berapa yang akhirnya bekerja. Kalau tidak ada yang mencapai lima dari lima, laporkan itu — dan itu bukan kegagalan, itu temuan.
+**Tantangan wajib.** Rancang satu prompt yang membuat model **mengakui ketidaktahuannya secara konsisten** pada lima pertanyaan yang jawabannya memang tidak ada. Laporkan berapa dari lima yang berhasil, dan prompt versi berapa yang akhirnya bekerja. Kalau tidak ada yang mencapai lima dari lima, laporkan saja — itu bukan kegagalan, itu temuan.
 
 ---
 
 ## 2.4 Daftar Periksa Mandiri — Minggu 2
 
-- [ ] Tabel pembedahan jawaban terisi ≥5 baris
+- [ ] Tabel uraian jawaban terisi ≥5 baris
 - [ ] Enam percobaan BREAK dijalankan dengan prediksi terisi lebih dulu
 - [ ] Nomor 5 diulang lima kali dan hasilnya dihitung
 - [ ] Perhitungan biaya ditampilkan langkahnya, bukan hanya hasil
@@ -355,18 +355,18 @@ Nomor 6 menguji "kehilangan di tengah". Ulangi dengan kalimat aneh diletakkan di
 
 ### Mengapa memakai model gateway, bukan satu penyedia
 
-Kalau produk Anda bicara langsung ke satu penyedia, Anda terikat padanya: satu kredensial, satu format, satu tarif, dan biaya berpindah yang mahal saat model yang lebih baik atau lebih murah muncul.
+Kalau produk Anda terhubung langsung ke satu penyedia, Anda terikat padanya: satu kredensial, satu format, satu tarif. Pindah ke model lain yang lebih bagus atau lebih murah jadi repot.
 
-**Model gateway** (gerbang model) adalah lapisan perantara: satu kredensial, satu format pemanggilan, banyak model di belakangnya. Manfaatnya bukan kenyamanan semata:
+**Model gateway** adalah layanan perantara: satu kredensial, satu format pemanggilan, tapi bisa mengakses banyak model. Manfaatnya bukan sekadar praktis:
 
 | Manfaat | Mengapa penting bagi kelas ini |
 |---|---|
 | Satu kredensial | Anda tidak perlu mendaftar ke lima layanan |
-| Bertukar model tanpa mengubah rancangan | Blok E menuntut Anda membandingkan model murah dan mahal |
+| Ganti model tanpa mengubah rancangan | Blok E menuntut Anda membandingkan model murah dan mahal |
 | Batas anggaran terpusat | Anda tidak dapat menghabiskan uang tanpa sadar |
 | Catatan pemakaian | Data biaya Anda di Minggu 14 datang dari sini |
 
-### Pemilihan model: tiga sumbu, bukan satu peringkat
+### Memilih model: tiga pertimbangan, bukan satu peringkat
 
 Tidak ada "model terbaik". Ada model yang tepat untuk satu tugas dengan satu batas biaya.
 
@@ -380,14 +380,14 @@ Tidak ada "model terbaik". Ada model yang tepat untuk satu tugas dengan satu bat
            │
            │   ● model kecil: cepat, murah, cocok untuk tugas rutin
            └──────────────────────────────► biaya
-                    (sumbu ketiga: latensi)
+                    (sumbu ketiga: latency)
 ```
 
-Pola yang dipakai sistem sungguhan dan akan Anda pakai di Blok E: **model bertingkat** — tugas rutin (klasifikasi, ekstraksi, penyaringan) ke model kecil; tugas yang menuntut penalaran ke model besar. Sebagian besar pemanggilan pada sistem produksi jatuh ke kategori pertama.
+Pola yang dipakai di sistem nyata dan akan Anda pakai di Blok E: **membagi tugas ke beberapa model** — tugas rutin (klasifikasi, ekstraksi, penyaringan) ke model kecil; tugas yang butuh penalaran ke model besar. Di sistem yang sudah dipakai sungguhan, sebagian besar pemanggilan termasuk tugas rutin.
 
 ### Kredensial adalah rahasia
 
-API key (*API key*) setara kata sandi yang terhubung ke tagihan. Tiga aturan yang tidak bisa ditawar:
+API key sama seperti kata sandi, dan terhubung langsung ke tagihan. Tiga aturan yang tidak bisa ditawar:
 
 1. Kunci **tidak pernah** ditulis langsung di dalam file kode.
 2. Kunci **tidak pernah** ikut terunggah ke repositori. Pastikan file rahasia masuk .gitignore.
@@ -399,7 +399,7 @@ Butir 3 adalah yang paling sering dilanggar di kelas berbasis AI-assisted develo
 
 ## 3.2 Prompt Pack — Minggu 3
 
-### A. Prompt Penyiapan Berpandu
+### A. Prompt Panduan Instalasi
 
 ```
 Saya mahasiswa TANPA latar belakang pemrograman. Sistem operasi saya
@@ -420,7 +420,7 @@ Aturan menjawab:
 ```
 Saya menemui pesan error berikut. API key SUDAH saya sensor.
 
-<TEMPEL PESAN GALAT>
+<TEMPEL PESAN ERROR>
 
 Jangan langsung memberi perbaikan.
 1. Terjemahkan pesan ini ke bahasa manusia: apa yang gagal, di lapisan mana.
@@ -436,7 +436,7 @@ Saya akan menjalankan prompt yang sama pada beberapa model untuk
 membandingkannya.
 
 Bantu saya menyusun protokol perbandingan yang JUJUR:
-- Apa yang harus dibuat sama persis antar-model agar perbandingannya sah
+- Apa yang harus dibuat sama persis antar-model agar perbandingannya adil
 - Berapa kali tiap prompt harus diulang, dan mengapa satu kali tidak cukup
 - Kriteria penilaian yang bisa saya terapkan konsisten
 - Tabel pencatatan hasil yang mencakup biaya dan latensi, bukan hanya kualitas
@@ -446,20 +446,20 @@ Bantu saya menyusun protokol perbandingan yang JUJUR:
 
 ## 3.3 READ → BREAK → FIX → BUILD
 
-### READ — Membaca satu pemanggilan (20 menit, tanpa AI)
+### READ — Memahami satu pemanggilan model (20 menit, tanpa AI)
 
-Panduan penyiapan lengkap ada di [lampiran/F-panduan-tool.md](lampiran/F-panduan-tool.md). Setelah pemanggilan pertama Anda berhasil, jangan langsung lanjut. Bedah dulu:
+Panduan penyiapan lengkap ada di [lampiran/F-panduan-tool.md](lampiran/F-panduan-tool.md). Setelah pemanggilan pertama Anda berhasil, jangan langsung lanjut. Uraikan dulu bagian-bagiannya:
 
 | Bagian pemanggilan | Isinya pada percobaan Anda | Fungsinya |
 |---|---|---|
 | Model yang dipilih | | |
 | Peran "system" | | |
 | Peran "user" | | |
-| Suhu | | |
-| Batas token keluaran | | |
-| Token masukan terpakai | | |
-| Token keluaran terpakai | | |
-| Waktu tanggap | | |
+| Temperature | | |
+| Batas token output | | |
+| Token input terpakai | | |
+| Token output terpakai | | |
+| Waktu respons (latency) | | |
 
 Lalu jawab: kalau Anda menghapus bagian "system", apa yang Anda **duga** berubah? Jangan dicoba dulu — itu percobaan nomor 1 di tahap berikutnya.
 
@@ -468,14 +468,14 @@ Lalu jawab: kalau Anda menghapus bagian "system", apa yang Anda **duga** berubah
 | # | Percobaan | Prediksi Anda | Hasil sebenarnya |
 |---|---|---|---|
 | 1 | Hapus seluruh isi peran "system" | | |
-| 2 | Turunkan batas token keluaran menjadi 20 | | |
+| 2 | Turunkan batas token output menjadi 20 | | |
 | 3 | Ganti nama model menjadi nama yang tidak ada | | |
-| 4 | Kirim masukan kosong | | |
+| 4 | Kirim input kosong | | |
 | 5 | Jalankan prompt yang sama pada model termurah dan model termahal yang tersedia | | |
 
-Untuk nomor 2, perhatikan **bagaimana** keluaran berakhir. Apakah ia meringkas, atau terpotong di tengah kalimat? Apa artinya itu bagi produk yang keluarannya harus berformat tetap?
+Untuk nomor 2, perhatikan **bagaimana** output berakhir. Apakah ia meringkas, atau terpotong di tengah kalimat? Apa artinya itu bagi produk yang output-nya harus berformat tetap?
 
-Untuk nomor 5, catat tiga angka untuk masing-masing model: biaya, waktu tanggap, dan penilaian kualitas Anda sendiri dalam skala 1–5 beserta alasannya.
+Untuk nomor 5, catat tiga angka untuk masing-masing model: biaya, waktu respons, dan penilaian kualitas Anda sendiri dalam skala 1–5 beserta alasannya.
 
 ### FIX — Tidak ada pada minggu ini
 
@@ -483,10 +483,10 @@ Untuk nomor 5, catat tiga angka untuk masing-masing model: biaya, waktu tanggap,
 
 1. Simpan file pemanggilan pertama Anda yang berjalan sebagai titik awal produk.
 2. Pastikan API key tersimpan di luar file kode dan tidak akan ikut terunggah.
-3. Buat file `catatan-pemakaian.md` yang akan Anda isi tiap minggu: tanggal, kegiatan, model, perkiraan token, perkiraan biaya. File ini menjadi bahan mentah laporan biaya Minggu 14 — mulai sekarang, bukan Minggu 14.
+3. Buat file `catatan-pemakaian.md` yang akan Anda isi tiap minggu: tanggal, kegiatan, model, perkiraan token, perkiraan biaya. File ini menjadi bahan laporan biaya Minggu 14 — jadi mulai isi sekarang, jangan menunggu Minggu 14.
 4. Jalankan satu prompt uji sederhana pada **tiga** model berbeda dan isi tabel perbandingan.
 
-**Tantangan wajib.** Temukan satu tugas dari calon persoalan Anda yang hasil model termurahnya **tidak dapat dibedakan** dari model termahal. Tunjukkan buktinya berupa keluaran keduanya berdampingan, dan hitung berapa penghematannya kalau tugas itu dijalankan seribu kali.
+**Tantangan wajib.** Temukan satu tugas dari calon persoalan Anda yang hasil model termurahnya **tidak dapat dibedakan** dari model termahal. Tunjukkan buktinya berupa output keduanya berdampingan, dan hitung berapa penghematannya kalau tugas itu dijalankan seribu kali.
 
 ---
 
@@ -494,9 +494,9 @@ Untuk nomor 5, catat tiga angka untuk masing-masing model: biaya, waktu tanggap,
 
 - [ ] Pemanggilan model pertama berhasil dan buktinya tersimpan
 - [ ] API key berada di luar file kode dan di luar repositori
-- [ ] Tabel pembedahan pemanggilan terisi lengkap
+- [ ] Tabel uraian pemanggilan terisi lengkap
 - [ ] Lima percobaan BREAK dijalankan dengan prediksi lebih dulu
-- [ ] Perbandingan tiga model terisi biaya, latensi, dan kualitas
+- [ ] Perbandingan tiga model terisi biaya, latency, dan kualitas
 - [ ] `catatan-pemakaian.md` dibuat dan sudah berisi baris pertama
 - [ ] Tantangan wajib disertai bukti berdampingan
 
@@ -504,12 +504,12 @@ Untuk nomor 5, catat tiga angka untuk masing-masing model: biaya, waktu tanggap,
 
 ## 3.5 Kisi-kisi Kuis 1 (Minggu 3, 15 menit)
 
-Kuis bersifat tertutup, tanpa AI, lima soal uraian singkat. Yang diuji:
+Kuis bersifat tutup buku, tanpa AI, lima soal uraian singkat. Yang diuji:
 
 1. Membedakan AI Engineering dari Machine Learning pada satu kasus konkret
 2. Menghitung perkiraan token dan biaya dari deskripsi tugas
-3. Menjelaskan mengapa halusinasi tidak dapat dihapus, hanya dikelola
-4. Menentukan pengaturan suhu yang tepat untuk satu tugas beserta alasannya
+3. Menjelaskan mengapa hallucination tidak bisa dihilangkan, hanya dikelola
+4. Menentukan pengaturan temperature yang tepat untuk satu tugas beserta alasannya
 5. Menilai apakah sebuah persoalan layak diselesaikan dengan model bahasa besar
 
 Seluruh jawaban dinilai pada **alasannya**, bukan pada kesimpulannya. Kesimpulan benar tanpa alasan bernilai separuh; kesimpulan berbeda dengan alasan kuat bernilai penuh.

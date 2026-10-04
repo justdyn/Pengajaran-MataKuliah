@@ -51,7 +51,7 @@ Dokumen rujukan yang saya miliki: <DAFTAR>
 Uji tema ini terhadap lima kriteria penolakan berikut, satu per satu,
 dan berikan vonis LOLOS / RAGU / GUGUR beserta alasan:
 1. AI dipaksakan pada persoalan yang sebenarnya deterministik
-2. Keluaran tidak dapat dibuktikan benar atau salah
+2. Output tidak dapat dibuktikan benar atau salah
 3. Tidak ada sumber pengetahuan yang sah dan dapat saya akses
 4. Bergantung pada data pribadi orang sungguhan
 5. Terlalu luas untuk dikerjakan seorang diri dalam 12 minggu
@@ -67,41 +67,41 @@ Tugas produk saya: <DESKRIPSI>
 Saat ini saya mengerjakannya dalam SATU prompt besar.
 
 1. Pecah menjadi langkah terkecil yang masuk akal.
-2. Untuk tiap langkah: masukan, keluaran, dan apakah ia benar-benar
+2. Untuk tiap langkah: input, output, dan apakah ia benar-benar
    memerlukan model bahasa atau cukup aturan biasa.
 3. Tandai langkah yang paling mungkin gagal, dan mengapa.
 4. Sebutkan satu KERUGIAN pemecahan ini dibanding satu prompt besar.
 ```
 
-### A4 — Penentu workflow atau agen
+### A4 — Penentu workflow atau agent
 
 ```
-Tugas: <DESKRIPSI TUGAS BERLANGKAH MAJEMUK>
+Tugas: <DESKRIPSI TUGAS YANG BUTUH BANYAK LANGKAH>
 Tool yang saya punya: <DAFTAR>
 
-Rancang tugas ini dalam DUA bentuk: workflow tetap dan agen.
-Bandingkan pada lima sumbu: keterdugaan, biaya, kemudahan pengujian,
-penanganan kegagalan, mutu hasil.
+Rancang tugas ini dalam DUA bentuk: workflow tetap dan agent.
+Bandingkan pada lima bagian: bisa-tidaknya ditebak, biaya, kemudahan pengujian,
+penanganan kegagalan, kualitas hasil.
 
-Jangan merekomendasikan salah satu sebelum kelima sumbu selesai
+Jangan merekomendasikan salah satu sebelum kelima bagian selesai
 dibandingkan. Setelah itu, sebutkan bentuk mana yang kamu pilih
-DAN pertukaran apa yang saya terima dengan memilihnya.
+DAN kekurangan apa yang saya terima dengan memilihnya.
 ```
 
 ---
 
-## B. Pola Mengendalikan Keluaran
+## B. Pola Mengendalikan Output
 
 ### B1 — Pengkritik instruksi
 
 ```
-Berikut instruksi sistem saya:
+Berikut system prompt saya:
 <TEMPEL>
 
 JANGAN menulis ulang.
-1. Periksa terhadap enam sumbu: peran, konteks, tugas, batasan,
+1. Periksa terhadap enam bagian: peran, konteks, tugas, batasan,
    contoh, format. Sebutkan yang lemah atau hilang.
-2. Sebutkan 3 masukan yang akan MEMBUATNYA GAGAL, dan gagalnya
+2. Sebutkan 3 input yang akan MEMBUATNYA GAGAL, dan gagalnya
    seperti apa.
 3. Tunjukkan bagian yang ambigu dan bisa ditafsirkan dua cara.
 4. Baru setelah itu tanyakan apakah saya mau versi perbaikannya.
@@ -112,27 +112,27 @@ JANGAN menulis ulang.
 ```
 Tugas produk saya: <DESKRIPSI>
 
-Rancang 5 contoh pasangan masukan-keluaran untuk few-shot, dengan
+Rancang 5 contoh pasangan input-output untuk few-shot, dengan
 komposisi:
 - 1 kasus khas
-- 2 kasus batas (data tak lengkap, format tak wajar)
+- 2 kasus batas (data tidak lengkap, format tidak wajar)
 - 1 kasus yang SEHARUSNYA ditolak sistem
-- 1 kasus ambigu yang menuntut klarifikasi
+- 1 kasus ambigu yang butuh klarifikasi
 
 Untuk tiap contoh, jelaskan APA yang diajarkannya kepada model.
 ```
 
-### B3 — Perancang skema
+### B3 — Perancang schema
 
 ```
-Keluaran yang saya inginkan: <DESKRIPSI>
-Keluaran ini dipakai untuk: <APA SETELAHNYA>
+Output yang saya inginkan: <DESKRIPSI>
+Output ini dipakai untuk: <APA SETELAHNYA>
 
-1. Rancang skema: medan, tipe, wajib/opsional, nilai yang sah.
-2. Untuk medan bernilai terbatas, sebutkan daftarnya dan pastikan
+1. Rancang schema: field, tipe, wajib/opsional, nilai yang valid.
+2. Untuk field bernilai terbatas, sebutkan daftarnya dan pastikan
    ADA nilai untuk kasus "tidak dapat ditentukan".
-3. Sebutkan medan yang saya LUPA dan biasanya diperlukan.
-4. Tunjukkan satu masukan yang membuat skema ini tidak memadai.
+3. Sebutkan field yang saya LUPA dan biasanya diperlukan.
+4. Tunjukkan satu input yang membuat schema ini tidak memadai.
 ```
 
 ### B4 — Perancang tool
@@ -142,7 +142,7 @@ Produk saya: <DESKRIPSI>
 Tugas yang harus selesai: <TUGAS>
 
 1. Tool apa saja yang dibutuhkan?
-2. Untuk tiap tool: nama, kegunaan, parameter, keluaran, dan
+2. Untuk tiap tool: nama, kegunaan, parameter, output, dan
    SATU KALIMAT tentang kapan ia TIDAK boleh dipakai.
 3. Tandai mana yang hanya membaca dan mana yang mengubah/mengirim.
 4. Sebutkan bagian tugas yang sebenarnya tidak butuh tool
@@ -160,7 +160,7 @@ Dokumen rujukan saya: <JENIS, JUMLAH, PANJANG, STRUKTURNYA>
 Pertanyaan khas pengguna: <3 CONTOH>
 
 1. Usulkan 3 strategi chunking yang berbeda untuk dokumen ini.
-2. Untuk tiap strategi: ukuran, tumpang tindih, metadata yang ikut
+2. Untuk tiap strategi: ukuran, overlap, metadata yang ikut
    disimpan, dan JENIS PERTANYAAN APA yang akan gagal olehnya.
 3. Jangan pilih satu; sebutkan cara saya MENGUJI mana yang terbaik
    untuk kasus saya.
@@ -190,7 +190,7 @@ Jawaban sistem: <TEMPEL JAWABAN>
 Jawaban yang benar: <JAWABAN ACUAN>
 
 JANGAN langsung memberi perbaikan.
-1. Tentukan jenis kegagalannya: gagal retrieval, gagal kesetiaan,
+1. Tentukan jenis kegagalannya: gagal retrieval, gagal setia pada sumber,
    atau gagal cakupan. Jelaskan dasarnya.
 2. Sebutkan satu pemeriksaan yang bisa MEMBANTAH diagnosis itu.
 3. Baru setelah saya jawab, usulkan perbaikan — dan sebutkan
@@ -199,26 +199,26 @@ JANGAN langsung memberi perbaikan.
 
 ---
 
-## D. Pola Merakit Agen
+## D. Pola Merakit Agent
 
 ### D1 — Peninjau kriteria berhenti
 
 ```
-Agen saya bertugas: <DESKRIPSI>
+Agent saya bertugas: <DESKRIPSI>
 Tool yang tersedia: <DAFTAR>
 Kriteria berhenti saat ini: <TEMPEL>
 Batas langkah: <N>
 
-1. Sebutkan 3 keadaan yang membuat agen ini BERHENTI TERLALU CEPAT.
+1. Sebutkan 3 keadaan yang membuat agent ini BERHENTI TERLALU CEPAT.
 2. Sebutkan 3 keadaan yang membuatnya TIDAK PERNAH BERHENTI.
 3. Untuk masing-masing, sebutkan mekanisme pencegahnya beserta
    kerugian mekanisme itu.
 ```
 
-### D2 — Pembaca trace agen
+### D2 — Pembaca trace agent
 
 ```
-Berikut trace agen saya pada satu tugas yang gagal:
+Berikut trace agent saya pada satu tugas yang gagal:
 <TEMPEL JEJAK LANGKAH DEMI LANGKAH>
 
 JANGAN langsung memperbaiki.
@@ -226,7 +226,7 @@ JANGAN langsung memperbaiki.
    terlihat.
 2. Jelaskan dasar penentuan itu.
 3. Sebutkan satu hal pada trace ini yang TIDAK bisa saya percaya
-   sebagai alasan sebenarnya dari tindakan agen, dan mengapa.
+   sebagai alasan sebenarnya dari tindakan agent, dan mengapa.
 4. Tanyakan informasi tambahan apa yang kamu butuhkan.
 ```
 
@@ -234,12 +234,12 @@ JANGAN langsung memperbaiki.
 
 ```
 Produk saya: <DESKRIPSI>
-Tool beserta kewenangannya: <TABEL>
+Tool beserta batas aksesnya: <TABEL>
 Sumber dokumen rujukan: <ASAL DOKUMEN>
 
 Rancang 6 cara membuat sistem ini melakukan hal yang tidak saya
 inginkan. Sedikitnya 3 di antaranya harus berupa serangan lewat
-DOKUMEN RUJUKAN, bukan lewat masukan pengguna.
+DOKUMEN RUJUKAN, bukan lewat input pengguna.
 
 Untuk tiap serangan: bagian mana yang tumbang, dan pada lapis
 guardrails mana ia seharusnya dihentikan.
@@ -260,7 +260,7 @@ Kegagalan yang pernah saya temukan: <DAFTAR>
 Susun rancangan set uji dengan komposisi: 40% kasus khas, 25% kasus
 batas, 20% kasus yang HARUS DITOLAK, 15% dari daftar kegagalan saya.
 
-Untuk tiap kasus: masukan, jawaban acuan, dan apa yang diukur kasus
+Untuk tiap kasus: input, jawaban acuan, dan apa yang diukur kasus
 itu. Jangan membuat jawaban acuan untuk kasus dari bidang saya —
 tandai saja bahwa saya yang harus mengisinya.
 ```
@@ -281,12 +281,12 @@ perbedaan itu hilang.
 ### E3 — Penghitung biaya
 
 ```
-Instruksi sistem saya: <N> kata
-Masukan pengguna khas: <N> kata
+System prompt saya: <N> kata
+Input pengguna khas: <N> kata
 Konteks RAG khas: <N> chunk × <N> kata
-Keluaran khas: <N> kata
-Langkah agen khas / terburuk: <N> / <N>
-Tarif model: masukan <X>, keluaran <Y> per juta token
+Output khas: <N> kata
+Langkah agent khas / terburuk: <N> / <N>
+Tarif model: input <X>, output <Y> per juta token
 
 1. Perkirakan token tiap bagian (teks Indonesia).
 2. Hitung biaya per permintaan khas dan per permintaan TERBURUK.
@@ -318,7 +318,7 @@ Jangan memperbaiki laporan saya.
 
 ```
 Saya menemui error berikut. API key SUDAH saya sensor.
-<TEMPEL PESAN GALAT>
+<TEMPEL PESAN ERROR>
 
 JANGAN langsung memberi perbaikan.
 1. Terjemahkan ke bahasa manusia: apa yang gagal, di lapisan mana.

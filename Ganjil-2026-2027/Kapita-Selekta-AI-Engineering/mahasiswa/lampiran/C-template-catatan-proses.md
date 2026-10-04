@@ -121,8 +121,8 @@ Rencana konkret minggu depan :
 
 | Bagian | Lemah | Kuat |
 |---|---|---|
-| 2 · Yang mengejutkan | "Ternyata modelnya pintar" | "Saya kira menaikkan jumlah chunk dari 3 ke 10 pasti memperbaiki jawaban. Ternyata tiga kasus justru memburuk karena chunk tak relevan mengaburkan yang benar" |
+| 2 · Yang mengejutkan | "Ternyata modelnya pintar" | "Saya kira menaikkan jumlah chunk dari 3 ke 10 pasti memperbaiki jawaban. Ternyata tiga kasus justru memburuk karena chunk yang tidak relevan menutupi chunk yang benar" |
 | 5 · Keputusan | "Saya pakai chunk 500 kata" | "Saya pakai chunking per pasal, bukan per jumlah huruf, karena dokumen saya berupa peraturan yang satu pasalnya adalah satu gagasan utuh. Saya tolak chunking tetap karena mencoba ini pada dua pasal panjang dan konteksnya terpotong di tengah ketentuan" |
-| 7 · Yang saya ubah | "tidak ada" | "AI memberi skema dengan medan `confidence` berupa angka 0–1. Saya ubah jadi tiga tingkat karena angka itu tidak terkalibrasi dan saya tidak punya cara memverifikasinya" |
+| 7 · Yang saya ubah | "tidak ada" | "AI memberi schema dengan field `confidence` berupa angka 0–1. Saya ubah jadi tiga tingkat karena angka itu tidak terkalibrasi dan saya tidak punya cara memverifikasinya" |
 | 7 · Yang salah | "tidak ada" | "AI menyatakan pustaka X memiliki fungsi Y. Fungsi itu tidak ada. Saya temukan setelah error, lalu memeriksa dokumentasi resminya" |
-| 10 · Yang macet | "masih bingung" | "Retrieval gagal pada pertanyaan yang memakai istilah lokal. Sudah saya coba: menambah jumlah chunk, mengganti kata kunci, memperbesar tumpang tindih. Dugaan saya masalahnya pada embedding untuk istilah non-baku. Minggu depan saya coba menambahkan daftar padanan istilah" |
+| 10 · Yang macet | "masih bingung" | "Retrieval gagal pada pertanyaan yang memakai istilah lokal. Sudah saya coba: menambah jumlah chunk, mengganti kata kunci, memperbesar overlap. Dugaan saya masalahnya pada embedding untuk istilah non-baku. Minggu depan saya coba menambahkan daftar padanan istilah" |

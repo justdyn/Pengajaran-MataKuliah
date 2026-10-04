@@ -2,7 +2,7 @@
 
 **Kapita Selekta: AI Engineering | Ganjil 2026/2027**
 
-Lampiran ini dipakai dua kali: **Minggu 1** untuk menghitung angka lingkup Anda, dan **Minggu 4** untuk menetapkan tema. Setelah Minggu 6 tema terkunci dan tidak dapat diganti.
+Lampiran ini dipakai dua kali: **Minggu 1** untuk menghitung angka lingkup Anda, dan **Minggu 4** untuk menetapkan tema. Setelah Minggu 6 tema dikunci dan tidak bisa diganti.
 
 ---
 
@@ -17,7 +17,7 @@ Lampiran ini dipakai dua kali: **Minggu 1** untuk menghitung angka lingkup Anda,
 | Jumlah dokumen rujukan minimum | `5 + (K mod 4)` | Minggu 7 |
 | Jumlah kasus uji minimum | `12 + (K mod 6)` | Minggu 14 |
 | Jumlah tool minimum | `2 + (K mod 2)` | Minggu 11 |
-| Mode keluaran tambahan | Kalau `K` genap: wajib ada satu mode keluaran ringkas selain mode penuh | Minggu 5 |
+| Mode output tambahan | Kalau `K` genap: wajib ada satu mode output ringkas selain mode penuh | Minggu 5 |
 | Jumlah rekan yang Anda review | 2 pada UTS, 2 pada Minggu 12 | Minggu 8 |
 
 `mod` berarti sisa pembagian. Contoh untuk **K = 7**:
@@ -26,7 +26,7 @@ Lampiran ini dipakai dua kali: **Minggu 1** untuk menghitung angka lingkup Anda,
 dokumen  = 5 + (7 mod 4) = 5 + 3 = 8
 kasus uji= 12 + (7 mod 6) = 12 + 1 = 13
 tool = 2 + (7 mod 2) = 2 + 1 = 3
-K ganjil → tidak wajib mode keluaran tambahan
+K ganjil → tidak wajib mode output tambahan
 ```
 
 Contoh untuk **K = 12**:
@@ -35,12 +35,12 @@ Contoh untuk **K = 12**:
 dokumen  = 5 + (12 mod 4) = 5 + 0 = 5
 kasus uji= 12 + (12 mod 6) = 12 + 0 = 12
 tool = 2 + (12 mod 2) = 2 + 0 = 2
-K genap  → wajib satu mode keluaran ringkas
+K genap  → wajib satu mode output ringkas
 ```
 
 Hitung angka Anda pada Minggu 1 dan tuliskan di catatan proses. Seluruh penilaian mulai Minggu 7 memakai angka ini, bukan angka contoh.
 
-Angka-angka itu **minimum**. Melampauinya tidak otomatis menaikkan nilai; yang menaikkan nilai adalah mutu rancangan dan evaluasi.
+Angka-angka itu **minimum**. Melampauinya tidak otomatis menaikkan nilai; yang menaikkan nilai adalah kualitas rancangan dan evaluasi.
 
 ---
 
@@ -77,7 +77,7 @@ Kode peserta K  :
 Dokumen rujukan minimum : 5 + (K mod 4) = ___
 Kasus uji minimum       : 12 + (K mod 6) = ___
 Tool minimum        : 2 + (K mod 2) = ___
-Mode keluaran tambahan  : wajib / tidak wajib   (K genap / ganjil)
+Mode output tambahan  : wajib / tidak wajib   (K genap / ganjil)
 
 ## 1. Persoalan
 Judul kerja produk :
@@ -92,14 +92,14 @@ Mengapa cara sekarang tidak memadai :
 Mengapa persoalan ini TIDAK cukup diselesaikan dengan basis data,
 formulir, atau seperangkat aturan biasa :
 
-Apa yang membuat persoalan ini menuntut penafsiran bahasa :
+Apa yang membuat persoalan ini butuh kemampuan memahami bahasa :
 
 ## 3. Ukuran keberhasilan
 Apa yang menjadi bukti bahwa produk ini berhasil :
 
-Siapa yang dapat memeriksa keluarannya benar atau salah :
+Siapa yang dapat memeriksa output-nya benar atau salah :
 
-Apa yang terjadi bila keluarannya salah, dan siapa yang menanggungnya :
+Apa yang terjadi bila output-nya salah, dan siapa yang menanggungnya :
 
 ## 4. Dokumen rujukan
 | # | Judul | Penerbit / asal | Tahun | Halaman | Status kelayakan |
@@ -117,7 +117,7 @@ Konfirmasi:
 Untuk masing-masing, tulis LOLOS beserta alasan satu kalimat.
 
 1. AI tidak dipaksakan pada persoalan deterministik :
-2. Keluaran dapat dibuktikan benar atau salah      :
+2. Output dapat dibuktikan benar atau salah      :
 3. Sumber pengetahuan tersedia dan sah             :
 4. Tidak bergantung pada data pribadi nyata        :
 5. Lingkupnya muat dikerjakan seorang diri 12 minggu :

@@ -20,7 +20,7 @@ Cara memakai lampiran ini: bacalah setiap akhir blok, dan kalau ada pertanyaan y
 |---|---|
 | Menunjuk bukti pada produk sendiri, menyebut alternatif yang ditolak dan alasannya | Penuh |
 | Benar tetapi tanpa alasan; "karena begitu contohnya" | Separuh |
-| Berbeda dari yang diharapkan penanya, tetapi berlasan kuat dan konsisten dengan rancangan | **Penuh** |
+| Berbeda dari yang diharapkan penanya, tetapi alasannya kuat dan konsisten dengan rancangan | **Penuh** |
 | Tidak dapat menjelaskan bagian karyanya sendiri | Nol untuk aspek itu |
 | "Saya tidak tahu, tetapi dugaan saya begini, dan cara memeriksanya begini" | Sebagian besar |
 
@@ -31,7 +31,7 @@ Baris terakhir penting. Mengakui batas pengetahuan lalu menunjukkan cara mencari
 
 # BAGIAN I — Bank Pertanyaan UTS (Minggu 8)
 
-Menguji Sub-CPMK 1–3: fondasi, kendali keluaran, dan rancangan grounding.
+Menguji Sub-CPMK 1–3: fondasi, kendali output, dan rancangan grounding.
 
 ## A. Persoalan dan kelayakan
 
@@ -40,30 +40,30 @@ Menguji Sub-CPMK 1–3: fondasi, kendali keluaran, dan rancangan grounding.
 3. Mengapa persoalan ini tidak cukup diselesaikan dengan basis data atau formulir?
 4. Bagian mana dari persoalan Anda yang sebenarnya **tidak** butuh model bahasa?
 5. Kalau anggaran Anda nol rupiah, bagian mana dari produk ini yang tetap dapat berjalan?
-6. Siapa yang dapat memeriksa keluaran produk Anda benar atau salah? Kalau hanya Anda, apa akibatnya bagi evaluasi nanti?
+6. Siapa yang dapat memeriksa output produk Anda benar atau salah? Kalau hanya Anda, apa akibatnya bagi evaluasi nanti?
 7. Apa yang terjadi kalau produk Anda salah, dan siapa yang menanggungnya?
 8. Sebutkan satu tanda yang akan membuat Anda menyimpulkan tema ini salah dipilih.
 
 ## B. Karakteristik model
 
 9. Jelaskan apa yang dilakukan model bahasa besar tanpa memakai kata "berpikir" atau "memahami".
-10. Mengapa halusinasi tidak dapat dihapus? Apa tiga cara mengelolanya, dan mana yang Anda pakai?
+10. Mengapa hallucination tidak bisa dihilangkan? Apa tiga cara mengelolanya, dan mana yang Anda pakai?
 11. Berapa perkiraan token satu permintaan khas pada produk Anda? Tunjukkan cara Anda menghitungnya.
-12. Suhu berapa yang Anda pakai, dan mengapa bukan yang lebih tinggi atau lebih rendah?
+12. Temperature berapa yang Anda pakai, dan mengapa bukan yang lebih tinggi atau lebih rendah?
 13. Apa perbedaan jendela konteks dan ingatan? Mana yang dimiliki produk Anda?
 14. Model apa yang Anda pakai, dan model apa yang Anda tolak? Atas dasar apa?
 15. Tunjukkan satu tugas pada produk Anda yang model termurah sudah memadai. Bagaimana Anda membuktikannya?
 
-## C. Kendali keluaran
+## C. Kendali output
 
-16. Tunjukkan instruksi sistem Anda. Petakan setiap bagiannya ke enam sumbu.
+16. Tunjukkan system prompt Anda. Petakan setiap bagiannya ke enam bagian.
 17. Bagian mana dari instruksi Anda yang kalau dihapus akan paling merusak? Sudahkah Anda mencobanya?
 18. Berapa versi instruksi yang sudah Anda buat? Apa yang berubah dari v1 ke versi sekarang, dan mengapa?
-19. Tunjukkan skema keluaran Anda. Mengapa medan ini ada dan medan itu tidak?
+19. Tunjukkan schema output Anda. Mengapa field ini ada dan field itu tidak?
 20. Nilai apa yang tersedia untuk kasus "tidak dapat ditentukan"? Apa yang terjadi kalau ia tidak ada?
-21. Mengapa medan bukti berupa kutipan langsung, bukan ringkasan?
-22. Apa yang terjadi kalau keluaran tidak sah menurut skema Anda? Tunjukkan mekanismenya berjalan.
-23. Tunjukkan satu masukan yang membuat produk Anda menghasilkan keluaran tak sah. Mengapa ia lolos?
+21. Mengapa field bukti berupa kutipan langsung, bukan ringkasan?
+22. Apa yang terjadi kalau output tidak valid menurut schema Anda? Tunjukkan mekanismenya berjalan.
+23. Tunjukkan satu input yang membuat produk Anda menghasilkan output yang tidak valid. Mengapa ia lolos?
 
 ## D. Tool
 
@@ -85,7 +85,7 @@ Menguji Sub-CPMK 1–3: fondasi, kendali keluaran, dan rancangan grounding.
 
 ## F. Proses dan kejujuran
 
-36. Tunjukkan satu masukan yang membuat sistem Anda gagal, dan jelaskan sebabnya sampai ke akar.
+36. Tunjukkan satu input yang membuat sistem Anda gagal, dan jelaskan sebabnya sampai ke akar.
 37. Sebutkan satu keputusan rancangan yang dapat dibuat berbeda, dan mengapa Anda memilih yang ini.
 38. Bagian mana dari karya Anda yang dibuat dengan bantuan AI, dan bagaimana Anda memverifikasinya?
 39. Sebutkan satu hal yang AI berikan kepada Anda dan ternyata salah. Bagaimana Anda menemukannya?
@@ -100,26 +100,26 @@ Menguji Sub-CPMK 4–6: agentic, evaluasi, risiko, dan pertanggungjawaban. Perta
 
 ## G. Keputusan agentic
 
-41. Bagian mana dari produk Anda yang agentik dan bagian mana yang **sengaja tidak**? Mengapa?
-42. Apa yang Anda tukar dengan menjadikannya agen? Sebutkan kerugiannya, bukan hanya keuntungannya.
+41. Bagian mana dari produk Anda yang agentic dan bagian mana yang **sengaja tidak**? Mengapa?
+42. Apa yang Anda tukar dengan menjadikannya agent? Sebutkan kerugiannya, bukan hanya keuntungannya.
 43. Berapa batas langkah Anda, dan mengapa angka itu? Apa yang terjadi saat batas tercapai?
 44. Berapa biaya terburuk satu permintaan pada produk Anda? Tunjukkan angkanya.
 45. Kalau tugas yang sama dijalankan tiga kali, apakah jalurnya sama? Apa akibatnya bagi pengujian Anda?
 46. Di mana keadaan tugas disimpan? Mengapa bukan di dalam riwayat percakapan?
 47. Tunjukkan trace satu tugas yang gagal. Pada langkah mana kegagalan bermula — dan bagaimana Anda tahu itu bukan langkah tempat ia terlihat?
-48. Alasan yang dinyatakan agen Anda pada tiap langkah — seberapa jauh ia dapat dipercaya sebagai penyebab tindakannya?
-49. Kalau Anda memakai multi-agen: tunjukkan bahwa satu agen dengan tool yang baik sudah dicoba dan tidak memadai.
+48. Alasan yang dinyatakan agent Anda pada tiap langkah — seberapa jauh ia dapat dipercaya sebagai penyebab tindakannya?
+49. Kalau Anda memakai multi-agent: tunjukkan bahwa satu agent dengan tool yang baik sudah dicoba dan tidak memadai.
 50. Apa yang terjadi kalau tool mengembalikan hasil yang **salah tetapi masuk akal**? Apakah sistem Anda menangkapnya?
 
 ## H. Guardrails
 
-51. Tunjukkan tabel kewenangan tool Anda. Baris mana yang penegakannya hanya bersandar pada instruksi?
-52. Mengapa penegakan di lapis instruksi lebih lemah daripada di lapis kewenangan?
+51. Tunjukkan tabel batas akses tool Anda. Baris mana yang penegakannya hanya bersandar pada instruksi?
+52. Mengapa penegakan di lapis instruksi lebih lemah daripada di lapis akses tool?
 53. Tindakan apa pada produk Anda yang tidak akan pernah dijalankan tanpa persetujuan manusia? Mengapa itu yang dipilih?
 54. Tunjukkan bentuk persetujuannya. Apakah pengguna punya cukup informasi untuk **menolak**?
 55. Serangan apa yang berhasil menembus produk Anda? Bagaimana Anda menutupnya?
-56. Mengapa serangan lewat dokumen rujukan lebih berhasil daripada lewat masukan pengguna?
-57. Lubang keamanan apa yang Anda ketahui **masih ada**? Mengapa Anda menerimanya?
+56. Mengapa serangan lewat dokumen rujukan lebih berhasil daripada lewat input pengguna?
+57. Celah keamanan apa yang Anda ketahui **masih ada**? Mengapa Anda menerimanya?
 58. Apa yang akan mengubah keputusan Anda untuk menerima risiko itu?
 
 ## I. Evaluasi
@@ -128,9 +128,9 @@ Menguji Sub-CPMK 4–6: agentic, evaluasi, risiko, dan pertanggungjawaban. Perta
 60. Siapa yang menyusun jawaban acuan, dan atas dasar apa?
 61. Tunjukkan satu kriteria penilaian Anda dan satu kasus batas yang membuat dua penilai bisa berbeda pendapat.
 62. Kalau Anda memakai penilai model: berapa tingkat kesesuaiannya dengan penilaian Anda sendiri? Apakah itu cukup?
-63. Berapa variance antar-jalan pada set uji Anda? Apa artinya bagi angka yang Anda laporkan?
+63. Berapa variance antar-percobaan pada set uji Anda? Apa artinya bagi angka yang Anda laporkan?
 64. Sebutkan satu klaim pada laporan evaluasi Anda, dan tunjukkan buktinya sekarang juga.
-65. Bagaimana angka Anda berubah dari garis dasar Minggu 9? Apa yang menyebabkannya?
+65. Bagaimana angka Anda berubah dari baseline Minggu 9? Apa yang menyebabkannya?
 66. Kasus jenis apa yang paling sering gagal? Apa polanya?
 67. Penghematan apa yang Anda terapkan, dan bagaimana Anda membuktikan kualitas tidak turun?
 68. Tiga hal apa yang membuat angka Anda tidak boleh digeneralisasi?
@@ -143,7 +143,7 @@ Menguji Sub-CPMK 4–6: agentic, evaluasi, risiko, dan pertanggungjawaban. Perta
 72. Data siapa yang diproses, dan apakah pemiliknya tahu?
 73. Untuk apa produk Anda **tidak boleh** dipakai? Apa yang mencegah orang memakainya untuk itu?
 74. Tunjukkan bias yang masuk lewat rancangan Anda sendiri — bukan lewat model, bukan lewat dokumen.
-75. Kasus apa yang tidak cocok ke satu pun kategori skema Anda? Ke mana ia dipaksa masuk, dan siapa yang dirugikan?
+75. Kasus apa yang tidak cocok ke satu pun kategori schema Anda? Ke mana ia dipaksa masuk, dan siapa yang dirugikan?
 76. Kalau produk Anda dipakai orang sungguhan mulai besok, apa yang paling membuat Anda khawatir?
 77. Kalau sistem Anda memberi rekomendasi salah yang merugikan seseorang, siapa yang bertanggung jawab?
 
@@ -166,7 +166,7 @@ Dari daftar panjang di atas, empat ini diajukan kepada **setiap** peserta pada U
 
 - **Nomor 78** — jelaskan satu keputusan rancangan beserta alternatif yang ditolak
 - **Nomor 64** — tunjukkan bukti satu klaim laporan Anda, sekarang juga
-- **Nomor 57** — lubang keamanan yang Anda ketahui masih ada, dan mengapa diterima
+- **Nomor 57** — celah keamanan yang Anda ketahui masih ada, dan mengapa diterima
 - **Nomor 79** — bagian yang tidak dapat Anda jelaskan sepenuhnya
 
 Untuk UTS, tiga ini diajukan kepada setiap peserta: **nomor 37, 36, dan 38**.

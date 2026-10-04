@@ -13,7 +13,7 @@ Seluruh yang dinilai sepanjang semester, beserta rubriknya, dikumpulkan di satu 
 | Tes / Ujian (Quiz) | 10% | Kuis 1 (minggu 3) · Kuis 2 (minggu 6) |
 | Tugas | 25% | Laporan pengamatan (5) · Luaran Blok B (10) · Luaran Blok C (5) · Peer review UTS (5) |
 | Sikap dan Profesionalisme | 15% | Catatan proses (6) · Keaktifan forum (4) · Diskusi kritis (3) · Refleksi akhir (2) |
-| Proyek | 30% | Agen dan guardrails (8) · Laporan evaluasi (4) · Kajian risiko (3) · Produk akhir (15) |
+| Proyek | 30% | Agent dan guardrails (8) · Laporan evaluasi (4) · Kajian risiko (3) · Produk akhir (15) |
 | Tes / Ujian (UTS) | 10% | Presentasi rancangan, minggu 8 |
 | Tes / Ujian (UAS) | 10% | Demonstrasi dan pertanggungjawaban, minggu 16 |
 
@@ -21,7 +21,7 @@ Seluruh yang dinilai sepanjang semester, beserta rubriknya, dikumpulkan di satu 
 
 **Klaim tanpa bukti dinilai nol pada aspek bukti**, bukan sekadar dikurangi. Sebaliknya, **kegagalan yang dilaporkan jujur dan dianalisis dinilai penuh** pada aspek yang sama.
 
-**Ketidakmampuan menjelaskan bagian karya sendiri dinilai sebagai tidak menguasai**, terlepas dari mutu luaran. Ini kriteria yang diumumkan sejak minggu 1, bukan tuduhan kecurangan.
+**Ketidakmampuan menjelaskan bagian karya sendiri dinilai sebagai tidak menguasai**, terlepas dari kualitas hasilnya. Ini kriteria yang diumumkan sejak minggu 1, bukan tuduhan kecurangan.
 
 ### Skala nilai
 
@@ -47,8 +47,8 @@ Seluruh instrumen diisi pada skala **0–100**. Nilai 0 khusus untuk komponen ya
 
 | Aspek | Bobot | Sangat Baik · 86–100 (A) | Baik · 76–85 (AB) | Cukup · 66–75 (B) | Kurang · di bawah 66 |
 |---|:--:|---|---|---|---|
-| Rancangan dan alasannya | 35% | Setiap keputusan berlasan; alternatif yang ditolak disebutkan | Keputusan berlasan, alternatif belum disebut | Keputusan benar, sebagian tanpa alasan | Meniru contoh tanpa pemahaman |
-| Bukti sistem bekerja | 25% | Bukti lengkap dengan masukan yang dipakai; kegagalan ikut dilaporkan | Bukti lengkap, kegagalan belum dilaporkan | Bukti ada, hanya kasus ideal | Klaim tanpa bukti |
+| Rancangan dan alasannya | 35% | Setiap keputusan disertai alasan; alternatif yang ditolak disebutkan | Keputusan beralasan, alternatif belum disebut | Keputusan benar, sebagian tanpa alasan | Meniru contoh tanpa pemahaman |
+| Bukti sistem bekerja | 25% | Bukti lengkap dengan input yang dipakai; kegagalan ikut dilaporkan | Bukti lengkap, kegagalan belum dilaporkan | Bukti ada, hanya kasus ideal | Klaim tanpa bukti |
 | Catatan proses | 25% | Prediksi terisi lebih dulu; penggunaan AI terlacak; kejujuran terlihat | Terisi lengkap dan tertelusur, refleksinya tipis | Terisi lengkap tetapi dangkal | Diisi formalitas |
 | Tantangan wajib | 15% | Tercapai, atau gagal dengan analisis yang tajam | Tercapai tanpa analisis mendalam | Dicoba, analisis dangkal | Tidak dikerjakan |
 
@@ -76,7 +76,7 @@ Lima butir, masing-masing dinilai 0 / 1 / 2:
 |:--:|---|---|---|---|
 | 1 | Prediksi BREAK terisi dan konsisten dengan hasil | Kosong atau jelas diisi belakangan | Terisi seadanya | Terisi, sebagian meleset dan dianalisis |
 | 2 | Keputusan rancangan disertai alternatif yang ditolak | Tidak ada | Ada tanpa alternatif | Lengkap |
-| 3 | Penggunaan AI terlacak; kolom "yang saya ubah" bermakna | Kosong atau "tidak ada" | Ada tetapi dangkal | Terlacak dan dinilai kritis |
+| 3 | Penggunaan AI terlacak; kolom "yang saya ubah" benar-benar diisi | Kosong atau "tidak ada" | Ada tetapi dangkal | Terlacak dan dinilai kritis |
 | 4 | Daftar periksa jujur | Selalu penuh tanpa jejak perbaikan | Sebagian | Jujur, yang tertinggal dikejar minggu berikut |
 | 5 | Bagian "yang macet" konkret | "Masih bingung" | Disebut tanpa upaya | Konkret, dengan upaya dan dugaan |
 
@@ -146,11 +146,11 @@ Baris kedua bukan kelonggaran. Sebagian besar persoalan AI Engineering tidak pun
 
 ### Yang dinilai
 
-Laporan pengamatan perilaku model bahasa besar dari eksplorasi terpandu minggu 1–2: pengaruh suhu, panjang konteks, dan bentuk instruksi terhadap keluaran, beserta jejak halusinasi yang Anda temukan sendiri.
+Laporan pengamatan perilaku model bahasa besar dari eksplorasi terpandu minggu 1–2: pengaruh temperature, panjang konteks, dan bentuk prompt terhadap output, beserta contoh hallucination yang Anda temukan sendiri.
 
 ### Rubrik
 
-Rubrik Luaran Mingguan (35/25/25/15). Penekanan minggu ini pada aspek **bukti**: laporan harus memuat masukan persis yang dipakai, bukan ringkasan kesan.
+Rubrik Luaran Mingguan (35/25/25/15). Penekanan minggu ini pada aspek **bukti**: laporan harus memuat input persis yang dipakai, bukan ringkasan kesan.
 
 ---
 
@@ -160,13 +160,13 @@ Rubrik Luaran Mingguan (35/25/25/15). Penekanan minggu ini pada aspek **bukti**:
 
 ### Yang dinilai
 
-Prototipe yang menghasilkan keluaran berformat tetap dan memanggil sedikitnya satu tool, beserta pustaka instruksi yang Anda susun sendiri.
+Prototipe yang menghasilkan output berformat tetap dan memanggil sedikitnya satu tool, beserta pustaka instruksi yang Anda susun sendiri.
 
-Yang dikumpulkan: berkas instruksi · skema keluaran beserta daftar nilai tertutupnya · deskripsi tool · bukti jalan pada masukan yang berbeda-beda, termasuk masukan yang membuatnya gagal.
+Yang dikumpulkan: berkas instruksi · schema output beserta daftar nilai tertutupnya · deskripsi tool · bukti sistem berjalan pada input yang berbeda-beda, termasuk input yang membuatnya gagal.
 
 ### Rubrik
 
-Rubrik Luaran Mingguan (35/25/25/15). Ini luaran berbobot terbesar di antara tugas — dua kali lipat yang lain — karena kendali keluaran adalah fondasi seluruh blok berikutnya.
+Rubrik Luaran Mingguan (35/25/25/15). Ini luaran berbobot terbesar di antara tugas — dua kali lipat yang lain — karena kendali output adalah fondasi seluruh blok berikutnya.
 
 Deskripsi tool yang kabur seperti "mencari data" menurunkan aspek rancangan, meski sistemnya berjalan.
 
@@ -186,7 +186,7 @@ Rubrik Luaran Mingguan (35/25/25/15). Tambahan khusus blok ini:
 
 | Yang diperiksa | Masuk aspek |
 |---|---|
-| Medan bukti berupa kutipan langsung dari sumber, bukan ringkasan | Bukti |
+| Field bukti berupa kutipan langsung dari sumber, bukan ringkasan | Bukti |
 | Sistem menjawab "TIDAK ADA DI SUMBER" ketika memang tidak ada | Rancangan |
 | Contoh jawaban tidak berdasar yang ditemukan sendiri dan ditelusuri sebabnya | Bukti |
 
@@ -202,7 +202,7 @@ Ulasan tertulis atas rancangan **dua rekan** yang presentasi di UTS.
 
 ### Rubrik
 
-| Mutu | Ciri | Nilai |
+| Kualitas | Ciri | Nilai |
 |---|---|---|
 | Kuat | Menunjuk keputusan spesifik, menyebut akibat yang mungkin, mengakui apa yang mungkin tidak Anda ketahui tentang kendala rekan | Penuh |
 | Cukup | Menunjuk keputusan spesifik tanpa menjelaskan akibatnya | Separuh |
@@ -218,7 +218,7 @@ Nilai instrumen ini adalah rata-rata dua ulasan.
 
 ### Yang dinilai
 
-Presentasi rancangan sistem, dengan dokumen dikumpulkan H-1. Salindia wajib memuat delapan hal: persoalan · mengapa AI · rancangan · kendali keluaran · tool · grounding · bukti (berhasil **dan** gagal) · risiko dan rencana.
+Presentasi rancangan sistem, dengan dokumen dikumpulkan H-1. Salindia wajib memuat delapan hal: persoalan · mengapa AI · rancangan · kendali output · tool · grounding · bukti (berhasil **dan** gagal) · risiko dan rencana.
 
 **Slide bukti wajib memuat kegagalan yang Anda temukan sendiri.** Bila tidak ada, aspek kejujuran pengujian dinilai **0**.
 
@@ -226,23 +226,23 @@ Presentasi rancangan sistem, dengan dokumen dikumpulkan H-1. Salindia wajib memu
 
 | Aspek | Bobot | Yang dilihat |
 |---|---:|---|
-| Ketepatan rumusan persoalan | 20% | Persoalan menuntut penafsiran bahasa, dapat dibuktikan salah, penggunanya jelas |
+| Ketepatan rumusan persoalan | 20% | Persoalan butuh kemampuan memahami bahasa, dapat dibuktikan salah, penggunanya jelas |
 | Alasan keputusan rancangan | 30% | Setiap keputusan beralasan, alternatif yang ditolak disebutkan |
 | Kejujuran pengujian | 20% | Kegagalan ditemukan sendiri dan dilaporkan, bukan hanya kasus ideal |
 | Kemampuan membela | 20% | Menjawab pertanyaan wajib tanpa berkelit |
 | Ketaatan format | 10% | Delapan butir salindia lengkap, dokumen H-1 masuk tepat waktu |
 
-Tiga pertanyaan wajib diambil dari Lampiran E dan **sudah dibagikan sejak minggu 1**: keputusan yang bisa dibuat berbeda · masukan yang membuat sistem gagal beserta akarnya · bagian yang dibantu AI dan cara Anda memverifikasinya.
+Tiga pertanyaan wajib diambil dari Lampiran E dan **sudah dibagikan sejak minggu 1**: keputusan yang bisa dibuat berbeda · input yang membuat sistem gagal beserta akarnya · bagian yang dibantu AI dan cara Anda memverifikasinya.
 
 ---
 
-## Proyek: Agen dan Guardrails
+## Proyek: Agent dan Guardrails
 
 **Bobot 8% · Kategori Proyek · Minggu 11 dan 13 · Sub-CPMK 4**
 
 ### Yang dinilai
 
-Agen yang bernalar bertahap dan memakai tool (minggu 11, disertai tiga trace eksekusi), lalu `guardrails.md` yang menetapkan batas kewenangan dan titik keterlibatan manusia (minggu 13).
+Agent yang bernalar bertahap dan memakai tool (minggu 11, disertai tiga trace eksekusi), lalu `guardrails.md` yang menetapkan batas akses dan titik keterlibatan manusia (minggu 13).
 
 ### Rubrik
 
@@ -251,10 +251,10 @@ Rubrik Luaran Mingguan (35/25/25/15), dinilai untuk kedua minggu lalu dirata-rat
 | Yang diperiksa | Masuk aspek |
 |---|---|
 | Pembedaan tegas mana tool yang boleh berjalan otomatis dan mana yang butuh persetujuan | Rancangan |
-| Tiga trace memperlihatkan langkah penalaran, bukan hanya keluaran akhir | Bukti |
-| Alasan memilih agen dan bukan workflow biasa | Rancangan |
+| Tiga trace memperlihatkan langkah penalaran, bukan hanya output akhir | Bukti |
+| Alasan memilih agent dan bukan workflow biasa | Rancangan |
 
-Rancangan multi-agen tanpa bukti bahwa satu agen tidak memadai dinilai rendah pada aspek rancangan.
+Rancangan multi-agent tanpa bukti bahwa satu agent tidak memadai dinilai rendah pada aspek rancangan.
 
 ---
 
@@ -264,9 +264,9 @@ Rancangan multi-agen tanpa bukti bahwa satu agen tidak memadai dinilai rendah pa
 
 ### Yang dinilai
 
-Partisipasi pada diskusi kritis di kelas dan mutu kritik arsitektur yang Anda tulis atas rancangan rekan pada minggu 12.
+Partisipasi pada diskusi kritis di kelas dan kualitas kritik arsitektur yang Anda tulis atas rancangan rekan pada minggu 12.
 
-**Kritik minggu 12 dibagikan kepada yang dikritik.** Kritik yang tidak berani disampaikan langsung tidak layak ditulis.
+**Kritik minggu 12 dibagikan kepada yang dikritik.** Kritik yang tidak berani disampaikan langsung sebaiknya tidak ditulis.
 
 ### Rubrik
 
@@ -284,7 +284,7 @@ Memakai rubrik peer review yang sama: kuat penuh · cukup separuh · lemah nol. 
 
 ### Rubrik
 
-Rubrik Luaran Mingguan (35/25/25/15). Penanda mutu yang mudah terlewat:
+Rubrik Luaran Mingguan (35/25/25/15). Penanda kualitas yang mudah terlewat:
 
 | Tanda sangat baik | Tanda kurang |
 |---|---|
@@ -304,7 +304,7 @@ Rubrik Luaran Mingguan (35/25/25/15). Penanda mutu yang mudah terlewat:
 
 ### Rubrik
 
-Rubrik Luaran Mingguan (35/25/25/15). Penanda mutu:
+Rubrik Luaran Mingguan (35/25/25/15). Penanda kualitas:
 
 | Tanda sangat baik | Tanda kurang |
 |---|---|
@@ -330,9 +330,9 @@ Portofolio lengkap, diperiksa H-2: README · rancangan-sistem · artefak · inst
 | Aspek | Bobot | Tanda sangat baik | Tanda kurang yang mudah terlewat |
 |---|---:|---|---|
 | Ketepatan rumusan masalah | 20% | Pengguna sesebut mungkin; AI terbukti tepat untuk persoalan itu | Persoalan digeser agar cocok dengan teknologi |
-| Kualitas rancangan sistem | 25% | Alternatif yang ditolak disebutkan | Multi-agen tanpa bukti satu agen tidak memadai |
+| Kualitas rancangan sistem | 25% | Alternatif yang ditolak disebutkan | Multi-agent tanpa bukti satu agent tidak memadai |
 | Keandalan dan evaluasi | 25% | Kalibrasi dan variance dilaporkan | Persen tanpa penyebut |
-| Kesadaran risiko dan etika | 15% | Ada risiko diterima tanpa mitigasi, berlasan | Pernyataan etis yang tidak dapat diperiksa |
+| Kesadaran risiko dan etika | 15% | Ada risiko diterima tanpa diatasi, disertai alasan | Pernyataan etis yang tidak dapat diperiksa |
 | Komunikasi dan pertanggungjawaban | 15% | Mengakui batas pengetahuan lalu menunjukkan cara mencari tahu | Jawaban meyakinkan yang runtuh pada pertanyaan bukti |
 
 ---
@@ -356,7 +356,7 @@ Kalau hasilnya menyimpang pada kasus yang Anda **klaim berhasil**, aspek kejujur
 | Pertanggungjawaban | 35% | Menjawab pertanyaan wajib tanpa berkelit |
 | Ketaatan format | 15% | Portofolio lengkap dan tepat waktu |
 
-Empat pertanyaan wajib dari Lampiran E, dibagikan sejak minggu 1: keputusan beserta alternatif yang ditolak · bukti untuk satu klaim laporan, sekarang juga · lubang keamanan yang Anda ketahui · bagian yang tidak dapat Anda jelaskan sepenuhnya.
+Empat pertanyaan wajib dari Lampiran E, dibagikan sejak minggu 1: keputusan beserta alternatif yang ditolak · bukti untuk satu klaim laporan, sekarang juga · celah keamanan yang Anda ketahui · bagian yang tidak dapat Anda jelaskan sepenuhnya.
 
 Pertanyaan terakhir bukan jebakan. Menjawabnya jujur bernilai lebih tinggi daripada berpura-pura menguasai semuanya.
 
@@ -405,4 +405,4 @@ Tidak berskor, tetapi menentukan apakah luaran minggu berikutnya dapat dinilai. 
 | **DITERIMA DENGAN PERBAIKAN** | Lanjut, perbaikan dikumpulkan paling lambat minggu 6 |
 | **DITOLAK** | Tema diganti sebelum minggu 5 |
 
-Yang membuat tema ditolak: persoalannya deterministik dan selalu dapat ditentukan pasti dari aturan · tidak ada yang dapat menilai keluarannya benar atau salah · memakai data pribadi orang sungguhan.
+Yang membuat tema ditolak: persoalannya deterministik dan selalu dapat ditentukan pasti dari aturan · tidak ada yang dapat menilai output-nya benar atau salah · memakai data pribadi orang sungguhan.

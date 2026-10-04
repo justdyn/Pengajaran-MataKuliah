@@ -679,12 +679,12 @@ $courses = Course::paginate(15);
 @endforeach
 ```
 
-15 baris = 1 query untuk daftar + 15 query untuk dosen = **16 query**. Dengan 100 baris, 101 query.
+15 baris = 1 query `COUNT` untuk pagination + 1 query untuk daftar + 15 query untuk dosen = **17 query**. Dengan 100 baris per halaman, 102 query.
 
 Perbaikannya satu kata:
 
 ```php
-$courses = Course::with('lecturer')->paginate(15);   // 2 query, apa pun jumlah barisnya
+$courses = Course::with('lecturer')->paginate(15);   // 3 query (count + daftar + dosen), apa pun jumlah barisnya
 ```
 
 Untuk relasi bersarang dan penghitungan:
