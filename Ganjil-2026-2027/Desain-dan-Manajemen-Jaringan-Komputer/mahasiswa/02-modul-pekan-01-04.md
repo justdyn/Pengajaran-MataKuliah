@@ -56,7 +56,7 @@ Akibat praktisnya: ketika PC di segmen HRD mengirim paket ke server di segmen la
 PC punya IP address tujuan, tetapi frame Ethernet butuh MAC address. Jembatan antara keduanya adalah ARP.
 
 ```
-PC: "Siapa pemilik 10.27.0.193? Beri tahu 10.27.0.35."   (broadcast)
+PC: "Siapa pemilik 10.27.0.193? Beri tahu 10.27.0.200."  (broadcast)
 Router: "10.27.0.193 ada di MAC 00D0.BA12.3456."          (unicast)
 ```
 
@@ -145,7 +145,7 @@ Bangun topologi minimal: dua PC dan satu switch 2960, alamat `10.27.0.10` dan `1
 | ICMP echo request | | | | |
 | ICMP echo reply | | | | |
 
-5. Jawab: pada baris ARP request, mengapa MAC tujuan berisi `FFFF.FFFF.FFFF`? Pada baris mana IP sumber kosong, dan mengapa itu masuk akal?
+5. Jawab: pada baris ARP request, mengapa MAC tujuan berisi `FFFF.FFFF.FFFF`? Field mana di dalam ARP request yang masih bernilai nol (`0000.0000.0000`), dan mengapa itu masuk akal?
 
 Tabel langkah 4 dikumpulkan. Ini satu-satunya kesempatan Anda melihat isi frame secara langsung; setelah pekan ini semuanya menjadi abstraksi.
 
@@ -155,7 +155,7 @@ Isi kolom prediksi **sebelum** mencoba. Kembalikan keadaan setelah setiap nomor.
 
 | # | Yang diubah | Prediksi Anda | Hasil sebenarnya |
 |---|---|---|---|
-| 1 | Ubah mask PC2 menjadi `/25`, ping dari PC1 | | |
+| 1 | Ubah alamat PC2 menjadi `10.27.0.130` dengan mask `/25`, ping dari PC1 | | |
 | 2 | Beri PC2 alamat di jaringan berbeda, tanpa router | | |
 | 3 | Ganti switch dengan hub, ulangi ping di Simulation Mode | | |
 | 4 | Cabut kabel PC2, `ping`, lalu `show mac address-table` | | |
@@ -367,7 +367,7 @@ Nomor 5 menghasilkan gejala yang akan Anda temui lagi pada pekan 4: interface te
 Kerjakan untuk **X Anda sendiri**, bukan 27. Deliverable ini juga menjadi **Tugas 1** (bobot 2,5% dari nilai akhir).
 
 1. Tabel VLSM untuk ketiga lokasi, sebelas segmen, dengan kolom: segmen, kebutuhan host, prefix, alamat jaringan, host pertama, host terakhir, broadcast, gateway, VLAN ID.
-2. Tabel empat tautan WAN `/30` beserta alamat kedua ujungnya.
+2. Tabel empat tautan WAN `/30` (HQ–Cabang, HQ–Gudang, HQ–ISP-1, HQ–ISP-2) beserta alamat kedua ujungnya.
 3. Tabel loopback ketiga router.
 4. Dua prefix IPv6 `/64` untuk HRD dan Keuangan.
 5. Alamat sisa yang belum terpakai di setiap blok, disebutkan eksplisit sebagai ruang pertumbuhan.
@@ -716,7 +716,7 @@ Artinya: apa pun yang tidak saya kenali, kirim ke sana. Ini bukan kemalasan, mel
 ```
 C    10.27.0.192/26 is directly connected, GigabitEthernet0/0.410
 S    10.27.20.0/22 [1/0] via 172.16.27.6
-S*   0.0.0.0/0 [1/0] via 172.16.27.9
+S*   0.0.0.0/0 [1/0] via 172.16.27.10
 ```
 
 | Kode | Arti |

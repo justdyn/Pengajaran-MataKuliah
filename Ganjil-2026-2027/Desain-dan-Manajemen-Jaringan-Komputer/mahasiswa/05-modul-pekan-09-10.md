@@ -25,19 +25,19 @@
 
 Pada jaringan kabel, setiap perangkat punya jalurnya sendiri ke switch. Pada wireless, semua perangkat pada satu access point berbagi satu ruang udara. Dua konsekuensi yang menentukan seluruh cara merancangnya:
 
-**Bandwidth dibagi, bukan dialokasikan.** Access point berlabel 300 Mbps tidak memberi 300 Mbps kepada setiap klien; angka itu adalah total yang diperebutkan semua klien yang terhubung. Tiga puluh laptop pada satu AP berarti setiap laptop mendapat sepersepuluh dari yang ia harapkan pada hari sibuk.
+**Bandwidth dibagi, bukan dialokasikan.** Access point berlabel 300 Mbps tidak memberi 300 Mbps kepada setiap klien; angka itu adalah total yang diperebutkan semua klien yang terhubung. Tiga puluh laptop yang aktif bersamaan pada satu AP berarti masing-masing hanya mendapat sebagian kecil dari angka itu, dan karena 300 Mbps adalah laju fisik, throughput nyata yang dibagi biasanya jauh lebih rendah lagi.
 
-**Hanya satu perangkat boleh memancar pada satu waktu.** Wireless bekerja setengah dupleks dan memakai CSMA/CA: perangkat menunggu ruang udara sepi sebelum mengirim. Kalau dua perangkat memancar bersamaan, keduanya harus mengulang. Semakin banyak klien, semakin banyak waktu terbuang untuk menunggu dan mengulang — bukan untuk mengirim data.
+**Pada satu kanal (*channel*), perangkat pada dasarnya bergantian memancar.** Wireless bekerja *half-duplex* dan memakai CSMA/CA: perangkat menunggu ruang udara sepi sebelum mengirim. Kalau dua perangkat memancar bersamaan, keduanya harus mengulang. Semakin banyak klien, semakin banyak waktu terbuang untuk menunggu dan mengulang — bukan untuk mengirim data. (WiFi 6 ke atas dapat melayani beberapa klien sekaligus lewat OFDMA dan MU-MIMO, tetapi prinsip berbagi ruang udara tetap berlaku, dan perilaku klasik inilah yang dimodelkan Packet Tracer.)
 
-Karena itu keluhan "WiFi lambat" hampir selalu masalah jumlah klien per AP atau tumpang tindih kanal, bukan masalah bandwidth internet. Ini pembedaan yang perlu Anda bawa ke pekan 10.
+Karena itu keluhan "WiFi lambat" hampir selalu masalah jumlah klien per AP atau tumpang tindih *channel*, bukan masalah bandwidth internet. Ini pembedaan yang perlu Anda bawa ke pekan 10.
 
-### Kanal: satu keputusan yang paling sering diabaikan
+### *Channel*: satu keputusan yang paling sering diabaikan
 
-Pita 2,4 GHz punya sebelas kanal di Indonesia, tetapi setiap kanal cukup lebar sehingga kanal yang bernomor berdekatan **saling tumpang tindih**. Hanya tiga yang benar-benar tidak bertumpang: **1, 6, dan 11**.
+Pita frekuensi (*band*) 2,4 GHz dibagi menjadi *channel* yang berjarak hanya 5 MHz (1–11 di Amerika Utara, 1–13 di banyak negara lain), padahal setiap *channel* selebar sekitar 20–22 MHz. Akibatnya *channel* yang bernomor berdekatan **saling tumpang tindih**. Hanya tiga yang benar-benar tidak tumpang tindih: **1, 6, dan 11**.
 
-Dua AP bersebelahan pada kanal 1 dan kanal 3 akan saling mengganggu lebih parah daripada dua AP yang keduanya di kanal 1 — pada kanal yang sama mereka setidaknya bisa saling mendengar dan bergantian, sementara pada kanal yang bertumpang sebagian mereka hanya menghasilkan derau bagi satu sama lain.
+Dua AP bersebelahan pada *channel* 1 dan *channel* 3 akan saling mengganggu lebih parah daripada dua AP yang keduanya di *channel* 1 — pada *channel* yang sama mereka setidaknya bisa saling mendengar dan bergantian, sementara pada *channel* yang tumpang tindih sebagian mereka hanya menghasilkan derau bagi satu sama lain.
 
-| Pita | Jangkauan | Kapasitas | Kanal bebas tumpang | Cocok untuk |
+| *Band* | Jangkauan | Kapasitas | *Channel* tanpa tumpang tindih | Cocok untuk |
 |---|---|---|---|---|
 | 2,4 GHz | Lebih jauh, tembus dinding | Rendah, padat | 3 (1, 6, 11) | Gudang luas, sensor IoT |
 | 5 GHz | Lebih pendek | Tinggi | Banyak | Area kerja padat |
@@ -48,13 +48,13 @@ Sensor IoT hampir selalu diletakkan di 2,4 GHz: datanya kecil, dan yang dibutuhk
 
 Ada dua cara merancang penempatan AP, dan keduanya menghasilkan jumlah AP yang berbeda untuk ruangan yang sama:
 
-**Desain cakupan** bertanya: berapa AP agar tidak ada titik mati? Cocok untuk gudang — sedikit orang, area luas.
+**Desain cakupan (*coverage*)** bertanya: berapa AP agar tidak ada *dead spot* (area tanpa sinyal)? Cocok untuk gudang — sedikit orang, area luas.
 
-**Desain kapasitas** bertanya: berapa AP agar setiap klien mendapat bandwidth yang layak? Cocok untuk kantor — banyak orang, area kecil. Biasanya menghasilkan AP lebih banyak dengan daya pancar **lebih rendah**, supaya setiap AP melayani lebih sedikit klien.
+**Desain kapasitas (*capacity*)** bertanya: berapa AP agar setiap klien mendapat bandwidth yang layak? Cocok untuk kantor — banyak orang, area kecil. Biasanya menghasilkan AP lebih banyak dengan daya pancar **lebih rendah**, supaya setiap AP melayani lebih sedikit klien.
 
 Menurunkan daya pancar terasa berlawanan dengan intuisi, tetapi itulah cara memperbesar kapasitas total: sel yang lebih kecil, lebih banyak, dan lebih sedikit klien per sel.
 
-Untuk perpindahan klien antar-AP tanpa koneksi terputus, sel bersebelahan perlu **tumpang tindih sekitar 15–20 persen**. Tanpa tumpang tindih, pengguna yang berjalan akan kehilangan koneksi sebelum AP berikutnya menerimanya.
+Untuk *roaming* (perpindahan klien antar-AP) tanpa koneksi terputus, sel bersebelahan perlu **tumpang tindih sekitar 15–20 persen**. Tanpa tumpang tindih, pengguna yang berjalan akan kehilangan koneksi sebelum AP berikutnya menerimanya.
 
 ### SSID bukan VLAN, tetapi harus dipetakan ke VLAN
 
@@ -69,7 +69,7 @@ SSID "NusantaraNet-IoT"    -> VLAN 470 (IoT)
 
 Kalau dua SSID berakhir di VLAN yang sama, keduanya berada di segmen yang sama dan seluruh kebijakan pekan 6 tidak berlaku di antaranya — walaupun namanya berbeda dan passwordnya berbeda. Tamu yang terhubung ke SSID tamu tetapi masuk ke VLAN karyawan adalah kebocoran yang tidak terlihat dari sisi pengguna mana pun.
 
-Uplink dari AP ke switch harus berupa **trunk** yang mengizinkan semua VLAN wireless, dengan alasan yang sama seperti pada pekan 3.
+Kalau satu AP membawa beberapa SSID yang dipetakan ke VLAN berbeda, uplink dari AP ke switch harus berupa **trunk** yang mengizinkan semua VLAN wireless tersebut, dengan alasan yang sama seperti pada pekan 3. Pada arsitektur dengan WLC dan AP *lightweight*, lalu lintas klien dibawa ke WLC, sehingga trunk-nya berada di uplink WLC, bukan di AP. Pastikan arsitektur yang Anda pakai lewat Prompt B.
 
 ### Keamanan wireless: yang boleh dan tidak boleh dipakai
 
@@ -79,6 +79,8 @@ Uplink dari AP ke switch harus berupa **trunk** yang mengizinkan semua VLAN wire
 | WEP | Tidak pernah | Dapat dipecahkan dalam hitungan menit |
 | WPA2-PSK | Dipakai NusantaraNet | Satu password bersama per SSID |
 | WPA2-Enterprise | Ideal untuk staf | Butuh server RADIUS; setiap orang punya kredensial sendiri |
+
+Di luar Packet Tracer, standar yang direkomendasikan saat ini adalah **WPA3**. NusantaraNet memakai WPA2 karena keterbatasan dukungan Packet Tracer (verifikasi lewat Prompt B). Sebutkan ini di laporan alih-alih menganggap WPA2 sebagai pilihan terbaik.
 
 Kelemahan WPA2-PSK yang harus Anda ketahui: satu password dipakai bersama, sehingga ketika seorang karyawan resign, satu-satunya cara mencabut aksesnya adalah mengganti password untuk semua orang. WPA2-Enterprise menyelesaikan ini karena kredensial bersifat per orang.
 
@@ -132,7 +134,7 @@ JANGAN beri konfigurasi.
 Untuk WLAN dan IoT di Packet Tracer 8.2, tandai
 DIDUKUNG / TIDAK ADA / DISEDERHANAKAN:
 
-- Access Point-PT dan AP-PT-A/N: pilihan keamanan apa saja yang tersedia?
+- Access Point-PT dan AP-PT-A/N: pilihan keamanan apa saja yang tersedia? Apakah WPA3 ada?
 - Apakah WPA2-Enterprise dengan server RADIUS berfungsi?
 - Apakah beberapa SSID pada satu AP-PT bisa dipetakan ke VLAN berbeda?
 - Apakah WLC (Wireless LAN Controller) tersedia, dan versi mana yang punya?
@@ -174,8 +176,8 @@ Pasang satu AP di HQ dengan satu SSID sederhana, hubungkan tiga laptop wireless.
 
 1. Di Simulation Mode, kirim `ping` dari satu laptop ke gateway. Amati jalurnya: perangkat mana saja yang **menerima** frame wireless itu, walaupun bukan tujuannya?
 2. Bandingkan dengan `ping` yang sama pada PC berkabel di switch. Berapa perangkat yang menerima frame di sana?
-3. Pada AP, buka pengaturan kanal dan daya. Catat nilai bawaannya.
-4. Tambahkan AP kedua dengan kanal yang **sama**, letakkan berdekatan. Amati apakah klien berpindah, dan ke AP mana ia terhubung.
+3. Pada AP, buka pengaturan *channel* dan daya. Catat nilai bawaannya.
+4. Tambahkan AP kedua dengan *channel* yang **sama**, letakkan berdekatan. Amati apakah klien berpindah, dan ke AP mana ia terhubung.
 5. Jawab: dari pengamatan nomor 1 dan 2, mengapa penyadapan lalu lintas jauh lebih mudah pada wireless? Apa yang tetap melindungi isi datanya?
 
 Jawaban nomor 5 adalah alasan WPA2 wajib bahkan pada SSID tamu.
@@ -186,9 +188,9 @@ Jawaban nomor 5 adalah alasan WPA2 wajib bahkan pada SSID tamu.
 |---|---|---|---|
 | 1 | Ubah password SSID di AP, jangan ubah di klien | | |
 | 2 | Petakan SSID tamu ke VLAN karyawan | | |
-| 3 | Hapus VLAN wireless dari daftar trunk uplink AP | | |
+| 3 | Hapus VLAN wireless dari daftar trunk uplink AP (atau uplink WLC) | | |
 | 4 | Ubah keamanan SSID menjadi terbuka, amati di Simulation Mode | | |
-| 5 | Letakkan dua AP berdekatan pada kanal 1 dan kanal 3 | | |
+| 5 | Letakkan dua AP berdekatan pada *channel* 1 dan *channel* 3 | | |
 | 6 | Matikan siaran SSID, lalu coba sambungkan klien baru | | |
 
 Nomor 2 adalah kebocoran yang paling penting di pekan ini. Dari sudut pandang tamu, tidak ada yang tampak berubah — nama SSID sama, password sama. Buktikan kebocorannya dengan satu `ping`, dan jelaskan mengapa kebijakan ACL pekan 6 tidak menolongnya.
@@ -197,7 +199,7 @@ Nomor 6: catat apakah Anda masih bisa menyambungkan klien dengan mengetik nama S
 
 ### FIX — File cacat (30 menit)
 
-Download `dmjk-broken-p09.pkt`. WLAN tiga lokasi dengan **5 fault**: satu pemetaan SSID ke VLAN yang salah, satu VLAN tidak diizinkan di trunk AP, satu keamanan wireless yang tidak sesuai kebijakan, satu perangkat IoT yang tidak dapat mendaftar, dan satu kanal yang bertumpang.
+Download `dmjk-broken-p09.pkt`. WLAN tiga lokasi dengan **5 fault**: satu pemetaan SSID ke VLAN yang salah, satu VLAN tidak diizinkan di trunk AP, satu keamanan wireless yang tidak sesuai kebijakan, satu perangkat IoT yang tidak dapat mendaftar, dan satu *channel* yang tumpang tindih.
 
 Dua di antaranya **tidak menyebabkan pengguna kehilangan koneksi** — keduanya masalah keamanan dan kinerja. Menemukannya butuh pemeriksaan aktif, bukan menunggu keluhan.
 
@@ -207,22 +209,22 @@ Dua di antaranya **tidak menyebabkan pengguna kehilangan koneksi** — keduanya 
 
 1. **Empat SSID** dengan pemetaan VLAN sesuai Lampiran B: staf, tamu, gudang, IoT. Tidak ada dua SSID yang berakhir di VLAN yang sama.
 2. **WPA2** pada seluruh SSID, termasuk tamu.
-3. **Rencana kanal 2,4 GHz** untuk semua AP di ketiga lokasi, tanpa tumpang tindih antar-AP yang bersebelahan.
-4. **Uplink trunk** dari setiap AP, hanya mengizinkan VLAN wireless yang dipakai.
+3. **Rencana *channel* 2,4 GHz** untuk semua AP di ketiga lokasi, tanpa tumpang tindih antar-AP yang bersebelahan.
+4. **Uplink trunk** yang hanya mengizinkan VLAN wireless yang dipakai: di AP (untuk AP otonom dengan beberapa SSID) atau di WLC (untuk AP *lightweight*), sesuai arsitektur yang Anda pilih.
 5. **DHCP untuk klien wireless** memakai pool dan relay pekan 5.
 6. **Kebijakan pekan 6 tetap berlaku**: tamu wireless tidak dapat menjangkau segmen internal; buktikan lagi setelah WLAN aktif.
 7. **Tiga perangkat IoT di Gudang** — minimal satu sensor suhu dan satu aktuator — terdaftar ke IoT Registration Server, dengan satu kondisi otomatis yang berfungsi.
-8. **Segmen IoT diisolasi**: hanya boleh menjangkau server pengumpul datanya, tidak boleh internet, tidak boleh segmen lain.
+8. **Segmen IoT diisolasi**: hanya boleh menjangkau server pengumpul datanya, tidak boleh internet, tidak boleh segmen lain, kecuali layanan yang dibutuhkan perangkat untuk bekerja (DHCP bila alamatnya dinamis, DNS bila registrasi memakai nama). Sebutkan pengecualian yang Anda buat beserta alasannya.
 
 **Isi tabel ini di laporan:**
 
-| SSID | VLAN | Lokasi | Pita | Kanal | Keamanan | Perkiraan klien |
+| SSID | VLAN | Lokasi | *Band* | *Channel* | Keamanan | Perkiraan klien |
 |---|---|---|---|---|---|---|
 | | | | | | | |
 
 Tambahkan satu tabel rencana AP: lokasi, jumlah AP, alasan (cakupan atau kapasitas), dan asumsi klien per AP.
 
-**Tantangan wajib (15%).** Manajemen menolak anggaran untuk AP tambahan di Gudang dan meminta satu AP saja melayani seluruh area. Tulis satu halaman: apa konsekuensi teknis yang **terukur** dari keputusan itu (kapasitas per klien, titik mati, dampak pada sensor IoT), dan satu alternatif yang lebih murah daripada menambah AP tetapi lebih baik daripada tidak melakukan apa pun. Jawaban yang hanya menyatakan "tidak disarankan" tanpa angka tidak dinilai.
+**Tantangan wajib (15%).** Manajemen menolak anggaran untuk AP tambahan di Gudang dan meminta satu AP saja melayani seluruh area. Tulis satu halaman: apa konsekuensi teknis yang **terukur** dari keputusan itu (kapasitas per klien, *dead spot*, dampak pada sensor IoT), dan satu alternatif yang lebih murah daripada menambah AP tetapi lebih baik daripada tidak melakukan apa pun. Jawaban yang hanya menyatakan "tidak disarankan" tanpa angka tidak dinilai.
 
 ---
 
@@ -230,14 +232,14 @@ Tambahkan satu tabel rencana AP: lokasi, jumlah AP, alasan (cakupan atau kapasit
 
 **Checkpoint 1.** Empat SSID aktif, klien di masing-masing mendapat alamat dari segmen yang benar. Asisten memeriksa bahwa alamat yang diterima klien tamu berada di blok WiFi-Tamu Anda, bukan blok lain.
 
-**Checkpoint 2.** Klien tamu wireless gagal menjangkau tiga segmen internal, berhasil ke internet. Tunjukkan rencana kanal Anda dan jelaskan mengapa AP yang bersebelahan tidak bertumpang.
+**Checkpoint 2.** Klien tamu wireless gagal menjangkau tiga segmen internal, berhasil ke internet. Tunjukkan rencana *channel* Anda dan jelaskan mengapa AP yang bersebelahan tidak tumpang tindih.
 
 **Checkpoint 3.** Tiga perangkat IoT terdaftar dan satu kondisi otomatis berjalan. Segmen IoT terbukti tidak dapat menjangkau segmen lain selain servernya.
 
 **Viva.** Contoh pertanyaan:
 
 - "SSID ini berakhir di VLAN mana? Tunjukkan buktinya, bukan pengaturannya."
-- "Kenapa kanal AP ini 6 dan bukan 3?"
+- "Kenapa *channel* AP ini 6 dan bukan 3?"
 - "Kalau saya sembunyikan SSID, apa yang jadi lebih aman? Jawab jujur."
 - "Sensor ini butuh akses ke mana saja? Tunjukkan baris yang membatasinya."
 - "Satu AP untuk 114 klien. Apa yang terjadi pada jam sibuk?"
@@ -259,7 +261,7 @@ Tambahkan satu tabel rencana AP: lokasi, jumlah AP, alasan (cakupan atau kapasit
 
 ### Satu ISP berarti satu titik kegagalan
 
-Seluruh jaringan yang Anda bangun sembilan pekan ini bergantung pada satu tautan. Kalau tautan itu mati: email berhenti, aplikasi cloud tidak dapat dijangkau, cabang kehilangan akses ke pusat kalau WAN-nya juga lewat ISP yang sama.
+Seluruh jaringan yang Anda bangun sembilan pekan ini bergantung pada satu *link*. Kalau *link* itu mati: email berhenti, aplikasi cloud tidak dapat dijangkau, cabang kehilangan akses ke pusat kalau WAN-nya juga lewat ISP yang sama.
 
 Menambahkan ISP kedua adalah jawaban yang benar, tetapi jawaban itu memunculkan pertanyaan baru yang jauh lebih menarik: **bagaimana router tahu kapan harus berpindah?**
 
@@ -273,7 +275,7 @@ Ini pembedaan yang paling sering salah dipahami, termasuk di modul dan tutorial 
 | Bandwidth total | Tetap sebesar satu ISP | Mendekati jumlah keduanya |
 | Kesulitan | Rendah | Tinggi |
 
-Load balancing sungguhan pada dua ISP sulit karena tiga hal: lalu lintas keluar lewat ISP-1 tetapi balasannya bisa datang lewat ISP-2 (routing asimetris), keadaan NAT tidak dibagi antar-jalur sehingga sesi terputus saat berpindah, dan koneksi masuk hanya dapat menuju satu alamat publik.
+Load balancing sungguhan pada dua ISP sulit karena tiga hal: lalu lintas keluar lewat ISP-1 tetapi balasannya bisa datang lewat ISP-2 (routing asimetris), keadaan NAT tidak dibagi antar-jalur sehingga sesi terputus saat berpindah, dan koneksi masuk ditujukan ke alamat publik milik salah satu ISP saja.
 
 NusantaraNet memakai **failover**, dan Anda harus dapat menjelaskan pilihan itu — bukan mengklaim melakukan load balancing.
 
@@ -286,9 +288,11 @@ ip route 0.0.0.0 0.0.0.0 172.16.27.10          <- ISP-1, AD 1
 ip route 0.0.0.0 0.0.0.0 172.16.27.14 10       <- ISP-2, AD 10
 ```
 
-Rute kedua disebut *floating* karena ia mengapung di luar tabel rute sampai dibutuhkan. Pada `show ip route` keadaan normal, hanya satu rute default yang tampak. Ini menjebak: banyak yang menyimpulkan konfigurasinya gagal karena rute keduanya "tidak muncul". Yang membuktikan ia bekerja adalah mematikan tautan pertama dan melihat rute kedua menggantikannya.
+Rute kedua disebut *floating* karena ia mengapung di luar tabel rute sampai dibutuhkan. Pada `show ip route` keadaan normal, hanya satu rute default yang tampak. Ini menjebak: banyak yang menyimpulkan konfigurasinya gagal karena rute keduanya "tidak muncul". Yang membuktikan ia bekerja adalah mematikan *link* pertama dan melihat rute kedua menggantikannya.
 
-Keterbatasan yang harus Anda ketahui: rute mengapung hanya berpindah kalau **interface-nya mati**. Kalau kabel ke ISP tetap hidup tetapi jaringan ISP itu sendiri bermasalah di hulu, router tidak tahu apa-apa dan tetap mengirim lalu lintas ke jalur yang rusak. Mengatasinya butuh mekanisme yang memeriksa keterjangkauan tujuan jauh, dan itu di luar cakupan Packet Tracer — sebutkan keterbatasan ini pada laporan Anda alih-alih berpura-pura tidak ada.
+Keterbatasan yang harus Anda ketahui: *floating static route* hanya berpindah kalau **interface-nya mati**. Kalau kabel ke ISP tetap hidup tetapi jaringan ISP itu sendiri bermasalah di sisi *upstream* ISP, router tidak tahu apa-apa dan tetap mengirim lalu lintas ke jalur yang rusak. Mengatasinya butuh mekanisme yang memeriksa *reachability* (keterjangkauan) tujuan jauh (misalnya IP SLA dengan *object tracking*). Periksa lewat Prompt B apakah Packet Tracer versi Anda mendukungnya; kalau tidak, sebutkan keterbatasan ini pada laporan Anda alih-alih berpura-pura tidak ada.
+
+**Failover juga harus memperhitungkan NAT.** Lalu lintas yang keluar lewat ISP-2 tetapi masih membawa alamat publik ISP-1 tidak akan menerima balasan, karena ISP-2 tidak merutekan alamat milik ISP-1. Agar failover keluar benar-benar berfungsi, translasi harus memakai alamat ISP yang sedang dipakai. Periksa lewat Prompt B apakah Packet Tracer mendukung NAT berbasis route-map untuk keperluan ini, dan tuliskan hasilnya di laporan.
 
 ### NAT keluar dan NAT masuk
 
@@ -316,13 +320,13 @@ NusantaraNet tidak memiliki segmen DMZ pada spesifikasi awalnya. Menilai apakah 
 
 Aplikasi yang dipakai PT Nusantara Digital berpindah ke penyedia layanan luar. Dari sudut pandang jaringan, ini mengubah tiga hal:
 
-**Lalu lintas yang dulu internal menjadi eksternal.** Aplikasi yang dulu di ruang server sekarang diakses lewat internet. Tautan internet berubah dari fasilitas menjadi infrastruktur kritis — kalau ia mati, pekerjaan berhenti, bukan hanya browsing.
+**Lalu lintas yang dulu internal menjadi eksternal.** Aplikasi yang dulu di ruang server sekarang diakses lewat internet. *Link* internet berubah dari fasilitas menjadi infrastruktur kritis — kalau ia mati, pekerjaan berhenti, bukan hanya browsing.
 
 **Ketergantungan pada DNS meningkat.** Semua akses ke layanan cloud dimulai dari resolusi nama. DNS yang bermasalah kini terasa seperti seluruh sistem mati.
 
 **Latensi menjadi ukuran yang relevan.** Aplikasi di ruang server merespons dalam satuan milidetik tunggal; layanan cloud melewati beberapa jaringan.
 
-Di Packet Tracer, "cloud" disimulasikan sebagai server di luar router ISP. Yang dapat Anda uji sungguhan adalah keterjangkauan, jalur, dan perilakunya saat failover — bukan kinerjanya. Jangan mengarang angka kinerja; laporkan apa yang benar-benar terukur.
+Di Packet Tracer, "cloud" disimulasikan sebagai server di luar router ISP. Yang dapat Anda uji sungguhan adalah *reachability*, jalur, dan perilakunya saat failover — bukan kinerjanya. Jangan mengarang angka kinerja; laporkan apa yang benar-benar terukur.
 
 Perangkat IoT Gudang juga masuk ke pembahasan ini: server registrasinya dapat diletakkan di dalam atau di luar. Kalau di luar, sensor bergantung pada internet untuk melapor, dan segmen IoT yang tadinya diisolasi total sekarang butuh satu lubang keluar. Menentukan mana yang dipilih, beserta alasannya, adalah bagian dari BUILD.
 
@@ -358,6 +362,7 @@ router 2911:
 - ip route dengan administrative distance (floating static)
 - ip nat inside source static tcp <ip> <port> <ip-publik> <port>
 - ip nat pool dengan beberapa alamat
+- ip nat inside source route-map (translasi berbeda per ISP)
 - ip sla dan track untuk memeriksa keterjangkauan
 - kata kunci "established" pada ACL
 - show ip nat translations, show ip nat statistics, clear ip nat translation
@@ -429,9 +434,9 @@ Uji **kedua arah** dan **kedua keadaan** (normal dan failover). Empat dari enam 
 
 **Kebutuhan:**
 
-1. **Dua tautan ISP** dengan alamat sesuai rencana pekan 2, keduanya ditandai `ip nat outside`.
+1. **Dua *link* ISP** dengan alamat sesuai rencana pekan 2, keduanya ditandai `ip nat outside`.
 2. **Failover** dengan floating static route. Buktikan dengan mematikan ISP-1, dan buktikan lagi bahwa lalu lintas kembali setelah ISP-1 hidup.
-3. **PAT** untuk seluruh klien dari ketiga lokasi, memakai alamat publik ISP-1.
+3. **PAT** untuk seluruh klien dari ketiga lokasi. Dalam keadaan normal, lalu lintas memakai alamat publik ISP-1; tentukan dan buktikan alamat apa yang dipakai saat failover.
 4. **Port forwarding** untuk web server internal: hanya port yang dibutuhkan.
 5. **Akses cloud** dari ketiga lokasi ke server simulasi di luar ISP, terbukti berfungsi pada keadaan normal maupun failover.
 6. **Keputusan IoT**: tentukan apakah IoT Registration Server diletakkan di dalam atau di luar. Terapkan pilihan Anda dan sesuaikan isolasi segmen IoT. Tulis alasannya dalam tiga kalimat.
@@ -449,7 +454,7 @@ Kolom terakhir adalah yang paling penting, dan untuk sebagian baris jawabannya a
 
 Pertama, **usulkan** apakah NusantaraNet perlu segmen DMZ, dengan alasan berbasis keadaan jaringan Anda sekarang — bukan definisi umum. Kalau ya, sebutkan blok alamat mana yang akan Anda pakai dari sisa blok Anda dan apa yang berpindah ke sana.
 
-Kedua, sebutkan **satu kegagalan yang tidak dapat dideteksi** oleh rancangan failover Anda, jelaskan gejalanya bagi pengguna, dan sebutkan apa yang dibutuhkan untuk mengatasinya beserta alasan mengapa itu tidak dapat disimulasikan di Packet Tracer.
+Kedua, sebutkan **satu kegagalan yang tidak dapat dideteksi** oleh rancangan failover Anda, jelaskan gejalanya bagi pengguna, dan sebutkan apa yang dibutuhkan untuk mengatasinya, beserta apakah itu dapat disimulasikan di Packet Tracer versi Anda (buktikan dengan hasil Prompt B atau percobaan).
 
 ---
 

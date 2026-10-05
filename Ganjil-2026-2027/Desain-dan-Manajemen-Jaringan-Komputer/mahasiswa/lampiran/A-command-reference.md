@@ -301,12 +301,12 @@ Wildcard adalah kebalikan subnet mask: bit `0` berarti harus cocok, bit `1` bera
 
 ## 11. SSH dan Akses Administratif
 
-Empat prasyarat SSH, dan salah satunya sering terlupa:
+Lima prasyarat SSH, dan salah satunya sering terlupa:
 
 ```
 hostname <nama>                         tidak boleh default
 ip domain-name <nama-domain>
-crypto key generate rsa                 pilih 1024 bit atau lebih
+crypto key generate rsa                 minimal 768 bit untuk SSH v2; 1024 lebih aman
 username <nama> secret <password>
 line vty 0 15
  transport input ssh                    mematikan telnet sekaligus

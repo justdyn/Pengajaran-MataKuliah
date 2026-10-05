@@ -352,7 +352,7 @@ Sejauh ini ACL Anda mengatur lalu lintas yang **melewati** router. Lalu lintas y
 
 Kenapa dibedakan? Karena hilangnya akses administratif punya konsekuensi berbeda dari terblokirnya lalu lintas pengguna: kalau Anda salah, Anda mengunci diri sendiri dari perangkat. Di Packet Tracer Anda cukup klik perangkatnya. Di jaringan sungguhan, itu berarti perjalanan ke lokasi.
 
-SSH di Cisco IOS butuh empat hal yang sering terlupa salah satu: hostname yang bukan default, domain name, kunci RSA yang dihasilkan, dan `transport input ssh` pada vty. Telnet harus dimatikan — ia mengirim password sebagai teks terang, dan itu bisa Anda buktikan sendiri di Simulation Mode.
+SSH di Cisco IOS butuh lima hal yang sering terlupa salah satu: hostname yang bukan default, domain name, kunci RSA yang dihasilkan (minimal 768 bit untuk SSH versi 2), akun lokal (`username ... secret ...`) dengan `login local` pada vty, dan `transport input ssh` pada vty. Telnet harus dimatikan — ia mengirim password sebagai teks terang, dan itu bisa Anda buktikan sendiri di Simulation Mode.
 
 ### Port security: pertahanan di lapisan 2
 
